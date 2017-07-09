@@ -9,7 +9,9 @@
 1.1.1. 	BPP (CONTAINER LOADING PROBLEM) 
 
 El problema de carga de un solo contenedor es uno de los problemas más difíciles en el corte y embalaje. Es un problema de optimización tridimensional en el que tenemos que empacar un conjunto de objetos rectangulares, en un objeto rectangular grande, contenedor, de tal manera que el empaque optimice algún criterio mientras satisface un conjunto de restricciones. Aunque en este caso solo trataremos de resolver este problema en una dimensión, considerando que una área del contenedor y objetos con área y prioridad.
+
 1.1.2. 	VRP (VEHICLE ROUTING PROBLEM)  
+
 El problema de enrutamiento de vehículos (VRP) es un problema de optimización combinatoria de gran importancia en diferentes entornos logísticos, consiste en servir una serie de clientes ubicados geográficamente de manera dispersa, para atenderlos se cuenta con vehículos que parten desde un deposito central, el problema consiste en asignar a cada vehículo una ruta de clientes, de manera que se minimice el costo de transporte, en este caso solo contamos con un vehículo, será parecido al problema STP solo que la instancia del problema será un grafo doble dirigido con dos aristas entre dos vértices con pesos/costes diferente.
  
 1.2. Desarrollo
@@ -22,9 +24,9 @@ El problema de enrutamiento de vehículos (VRP) es un problema de optimización 
 
 Se ha elaborado un diseño con la máxima extensibilidad tanto para que el código sea fácil de leer como  para facilitar crecimiento futuro del código con menor esfuerzo, por lo cual se ha creado una estructura abstracta utilizando varios patrones de diseño donde se puede extender creando nuevos tipos de problemas (Rutas. Cargas. Localización,..), Nuevos problemas concretos (TSP, BPP,..) y nuevo Metaheurísticas, donde se puede ver en el siguiente diagrama:
 
-  
+
 1.2.4. Esquema completo del software
- 
+
 1.3. Algoritmos
 
 1.3.1. 	Búsqueda local 
@@ -34,7 +36,7 @@ Utilizaré el algoritmo HillClimbing con dos variantes de este tipo algoritmos p
 
 	• FirstImprovement: Para BPP (CONTAINER LOADING PROBLEM) En este  caso el algoritmo para de buscar en el momento en el que encuentra una solución que mejore a la que ya se tiene.
 	• BestImprovement: Para VRP (VEHICLE ROUTING PROBLEM), El algoritmo explorará todas las posibles soluciones vecinas y seleccionará la mejor de entre todas ellas.
-	
+
 1.3.2. 	simulated annealing (Enfriamiento Simulado)
 
 Es un algoritmo de búsqueda por entornos con un criterio probabilístico de aceptación de soluciones basado en termodinámica. Permite que algunos movimientos sean hacia soluciones peores, para evitar que se quede en óptimos locales. Hay que controlar estos movimientos, ya que nos pueden desviar del óptimo global. Para ello siempre se guarda la mejor solución hasta el momento. Conforme va avanzando la búsqueda va disminuyendo la probabilidad de que salte a una solución peor que la actual. Se usa una probabilidad de aceptación de nuevas soluciones peores que es función exponencial de la modificación de la función objetivo.
@@ -236,7 +238,8 @@ Para este algoritmo se han implementado dos formas diferentes, una por cada tipo
 		}
 
 		return bestSolution;
-	} 
+	}
+
 3.2.2. VRP VEHICLE ROUTING PROBLEM 
 
 	public ArrayList<VRPSolution> getNeighbours(){
@@ -256,11 +259,10 @@ Para este algoritmo se han implementado dos formas diferentes, una por cada tipo
 
 He realizado dos tipos de instancias El primero por entrada de datos por fichero y el otro la generación aleatoria de instancias.
 
-	• El nombre de las instancias por entrada de datos está compuesto por un código alfanumérico compuesto por el nombre el problema y 
-un número de la instancia (VRP_x o BPP_x).
+	• El nombre de las instancias por entrada de datos está compuesto por un código alfanumérico compuesto por el nombre el problema y un número de la instancia (VRP_x o BPP_x).
 
 	• Las instancias que se generan aleatoriamente se muestran por pantalla antes de seleccionar la metaheurística de solución del problema.
-	
+
 En la instancia encontramos en la primera fila el número de nodos del grafo seguido del número de nodos a elegir para calcular la distancia. Seguidamente encontramos por filas el número de un nodo, el número de un nodo diferente y la distancia que hay entre estos dos nodos. 
 
 4.1.2. VRP (VEHICLE ROUTING PROBLEM) 
@@ -274,17 +276,16 @@ Estas instancias contienen en la primera fila el número de ciudades comprendida
 Simulated anneling
 
 4.2.2. Greedy
- 
+
 4.2.3. Grasp
 
 Se ha realizado una  versión modificada del hill Climbing para lograr una ligera mejora en tiempo y distancia entre las dos versiones
- 
 Un resumen entre las 4 metahueristicas se muestra a continuación donde podemos comparar los tiempo de ejecución y el área del contenedor optimizada para cada metaheurística
- 
+
 4.2.2. VRP (VEHICLE ROUTING PROBLEM) 
 
 Y a continuación un resumen para el problema de VRP.
- 
+
 4.3. Análisis de los resultados 
 
 4.3.1. BPP (CONTAINER LOADING PROBLEM) 
