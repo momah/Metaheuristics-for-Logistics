@@ -1,57 +1,57 @@
 # 🚚📦 Metaheuristics for Logistics 🚛🛤
 
-This repository explores the application of metaheuristics to tackle challenging logistics problems, such as the BPP (Container Loading Problem) and VRP (Vehicle Routing Problem).
+Este repositorio explora la aplicación de metaheurísticas para abordar problemas logísticos desafiantes, como el BPP (Container Loading Problem) y el VRP (Vehicle Routing Problem).
 
-## 📋 Problem Descriptions
+## 📋 Descripción de problemas
 
-### 1. BPP (Container Loading Problem)
-The Container Loading Problem involves optimizing the three-dimensional packing of rectangular objects into a large container. The goal is to maximize some criteria while adhering to a set of constraints. While this repository focuses on one-dimensional solutions, it's important to consider the container's area and objects with area and priority.
+### 1. BPP (Problema de Carga de Contenedores)
+El problema de carga de contenedores consiste en optimizar el embalaje tridimensional de objetos rectangulares en un gran contenedor. El objetivo es maximizar algunos criterios mientras se adhiere a un conjunto de restricciones. Aunque este repositorio se centra en soluciones unidimensionales, es importante considerar el área del contenedor y los objetos con área y prioridad.
 
-### 2. VRP (Vehicle Routing Problem)
-The Vehicle Routing Problem is a combinatorial optimization problem widely encountered in logistics. It involves efficiently serving geographically dispersed customers with vehicles departing from a central depot. The objective is to minimize transportation costs, with a focus on a single vehicle. This problem is akin to the STP but with a double-directed graph and different weights/costs between vertices.
+### 2. VRP (Problema de enrutamiento de vehículos)
+El Problema de Enrutamiento de Vehículos es un problema de optimización combinatoria ampliamente encontrado en logística. Consiste en servir eficientemente a clientes geográficamente dispersos con vehículos que parten de un depósito central. El objetivo es minimizar los costes de transporte, centrándose en un único vehículo. Este problema es similar al STP pero con un grafo de doble dirección y diferentes pesos/costes entre vértices.
 
-## 🧩 Development
+## 🧩 Desarrollo
 
-The code is designed for extensibility and ease of future growth. It employs abstract structures and design patterns to facilitate the creation of new problem types, concrete problems, and metaheuristics.
+El código está diseñado para la extensibilidad y la facilidad de crecimiento futuro. Emplea estructuras abstractas y patrones de diseño para facilitar la creación de nuevos tipos de problemas, problemas concretos y metaheurísticas.
 
-## 🧬 Algorithms
+## 🧬 Algoritmos
 
-### 1. Local Search
-Local search iteratively explores neighboring solutions, selecting improved ones. This repository employs HillClimbing with two variations for each problem:
-- FirstImprovement: For BPP, the algorithm stops when it finds an improving solution.
-- BestImprovement: For VRP, it explores all possible neighboring solutions and selects the best.
+### 1. Búsqueda local
+La búsqueda local explora iterativamente las soluciones vecinas, seleccionando las mejoradas. Este repositorio emplea HillClimbing con dos variaciones para cada problema:
+- FirstImprovement: Para BPP, el algoritmo se detiene cuando encuentra una solución que mejora.
+- BestImprovement: Para VRP, explora todas las posibles soluciones vecinas y selecciona la mejor.
 
 ### 2. Simulated Annealing
-Simulated Annealing is a probabilistic local search algorithm that allows moves to worse solutions. It gradually reduces the probability of accepting worse solutions to balance exploration and exploitation.
+El Simulated Annealing es un algoritmo probabilístico de búsqueda local que permite pasar a soluciones peores. Reduce gradualmente la probabilidad de aceptar soluciones peores para equilibrar la exploración y la explotación.
 
-### 3. Tabu Search
-Tabu Search uses memory to improve performance. It avoids revisiting the same search areas by maintaining a short-term memory of solutions.
+### 3. Búsqueda Tabu
+La búsqueda Tabu utiliza la memoria para mejorar el rendimiento. Evita volver a visitar las mismas áreas de búsqueda manteniendo una memoria de soluciones a corto plazo.
 
-### 4. Greedy (Randomized)
-The Greedy algorithm iteratively selects a random neighbor and replaces the current solution if an improvement is found.
+### 4. Greedy (aleatorio)
+El algoritmo Greedy selecciona iterativamente un vecino aleatorio y reemplaza la solución actual si se encuentra una mejora.
 
-### 5. GRASP (Greedy Randomized Adaptive Search Procedure)
-GRASP combines greedy construction with local search to tackle combinatorial optimization problems. It randomly selects elements from a candidate list to build solutions.
+### 5. GRASP (Procedimiento de Búsqueda Adaptativa Aleatoria Greedy)
+GRASP combina la construcción greedy con la búsqueda local para abordar problemas de optimización combinatoria. Selecciona aleatoriamente elementos de una lista de candidatos para construir soluciones.
 
-## 🔬 Experimentation and Results Analysis
+## 🔬 Experimentación y Análisis de Resultados
 
-### 4.1. Problem Instances
-- Instances for BPP: Two types - input from files and randomly generated.
-- Instances for VRP: Vary in the number of cities.
+### 4.1. Instancias del problema
+- Instancias para BPP: Dos tipos - entrada desde ficheros y generadas aleatoriamente.
+- Instancias para VRP: Varían en el número de ciudades.
 
-### 4.2. Results
-- Simulated Annealing proved effective in optimizing container size but with lower package priority.
-- Greedy excelled at prioritizing packages and optimizing container size.
-- GRASP provided a slightly improved solution for time and distance between two versions.
+### 4.2. Resultados
+- Simulated Annealing demostró ser eficaz en la optimización del tamaño de los contenedores, pero con una menor prioridad de los paquetes.
+- Greedy destacó en la priorización de paquetes y en la optimización del tamaño del contenedor.
+- GRASP proporcionó una solución ligeramente mejorada para el tiempo y la distancia entre dos versiones.
 
-### 4.3. Results Analysis
-- For BPP, Simulated Annealing excelled in optimizing the container size.
-- For VRP, HillClimbing executed much faster than Simulated Annealing and yielded a competitive solution in terms of distance between nodes.
+### 4.3. Análisis de resultados
+- Para BPP, Simulated Annealing sobresalió en la optimización del tamaño del contenedor.
+- Para VRP, HillClimbing se ejecutó mucho más rápido que Simulated Annealing y dio una solución competitiva en términos de distancia entre nodos.
 
-The choice of metaheuristic depends on various factors, including problem objectives and constraints. Different metaheuristics perform differently for different problems, and there's no one-size-fits-all solution.
+La elección de la metaheurística depende de varios factores, como los objetivos y las restricciones del problema. Cada metaheurística funciona de forma distinta según el problema y no existe una solución única para todos.
 
-## :busts_in_silhouette: Authors
-This proyect is a modified copy from the original author. Done by:
+## :busts_in_silhouette: Autores
+Este proyecto es una copia modificada del autor original. Realizado por:
 - Laura Inés González González
 - Eduardo Barrios García
 - Paula Regalado De León
