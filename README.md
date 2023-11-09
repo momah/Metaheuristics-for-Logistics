@@ -14,6 +14,9 @@ El Problema de Enrutamiento de Vehículos es un problema de optimización combin
 
 El código está diseñado para la extensibilidad y la facilidad de crecimiento futuro. Emplea estructuras abstractas y patrones de diseño para facilitar la creación de nuevos tipos de problemas, problemas concretos y metaheurísticas.
 
+El estado del proyecto desde SonarCloud puede revisarse en el siguiente enlace: [SonarCloud Metaheuristics for Logistics Lab](https://sonarcloud.io/organizations/metaheuristics-for-logistics-lab/projects)
+
+
 ## 🧬 Algoritmos
 
 ### 1. Búsqueda local
