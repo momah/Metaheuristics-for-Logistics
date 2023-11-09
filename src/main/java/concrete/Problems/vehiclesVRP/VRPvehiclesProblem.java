@@ -125,14 +125,13 @@ public class VRPvehiclesProblem extends Problem implements IRoutingProblems {
 	 */
 	@Override
 	public void randomInstances(){
-	    Random random = new Random(); // Create a single Random instance here
 	    distances.setDistances(new int[distances.getSize()][distances.getSize()]);
-	    for(int i = 0; i < distances.getSize(); i++){
-	        for(int j = 0; j < distances.getSize(); j++){
-	            if(i != j) distances.getDistances()[i][j] = random.nextInt(100); // Reuse the same Random instance
-	            else distances.getDistances()[i][j] = 0; 
-	        }
-	    }
+		for(int i=0; i<distances.getSize(); i++){
+			for(int j=0; j<distances.getSize(); j++){
+				if(i != j) distances.getDistances()[i][j] = (int)(new Random().nextDouble()*100);
+				else distances.getDistances()[i][j] = 0; 
+			}
+		}
 	}
 	
 	
