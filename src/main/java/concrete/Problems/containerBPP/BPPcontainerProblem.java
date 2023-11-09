@@ -33,19 +33,18 @@ public class BPPcontainerProblem extends Problem implements ILoadingProblems {
 		this.items = items;
 	}
 
-	private String LoadDataFromFile(String filename){
-		// lendo o arquivo que contem as instancias
-		FileReader file = null;
-		char[] buff = new char[ 1024*10 ];
-		try {
-			file = new FileReader( filename );
-			file.read( buff );
-		} catch (IOException e) {
-			System.out.println("Error. " + e.getMessage());
-			System.exit(0);
-		}
-		return new String( buff );
-
+	public String LoadDataFromFile(String filename) {
+	    // lendo o arquivo que contem as instancias
+	    char[] buff = new char[1024 * 10];
+	
+	    try (FileReader file = new FileReader(filename)) {
+	        file.read(buff);
+	    } catch (IOException e) {
+	        System.out.println("Error. " + e.getMessage());
+	        System.exit(0);
+	    }
+	
+	    return new String(buff);
 	}
 	
 	/* (non-Javadoc)
