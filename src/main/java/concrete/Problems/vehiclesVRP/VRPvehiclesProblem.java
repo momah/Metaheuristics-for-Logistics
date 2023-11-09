@@ -3,167 +3,147 @@ package concrete.Problems.vehiclesVRP;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
-
 import abstracts.problem.IRoutingProblems;
 import abstracts.problem.Problem;
 
-
 public class VRPvehiclesProblem extends Problem implements IRoutingProblems {
-	
-	private Edges distances = new Edges();
 
-	/**
-	 * Default constructor
-	 */
-	public VRPvehiclesProblem() {
-		super();
-	}
-	
-	/**
-	 * Constructor using the 'size' attribute
-	 * @param size
-	 */
-	public VRPvehiclesProblem(int size) {
-		super();
-		this.distances.setSize(size);
-	}
+    private Edges distances = new Edges();
+    private Random random = new Random(); // Una sola instancia de Random BUGFIX
+    private String textInstances;
 
-	/**
-	 * @param size
-	 * @param distances
-	 */
-	public VRPvehiclesProblem(int size, int[][] distances) {
-		super();
-		this.distances.setSize(size);
-		this.distances.setDistances(distances);
-	}
-	
-	/**
-	 * 
-	 * @param Constructor using text file
-	 */
-	public VRPvehiclesProblem(String filename) {
-		super();
-		this.textInstances = LoadDataFromFile(filename);
-	}
-	
-	
-	@Override
-	public int getSize() {
-		return distances.getSize();
-	}
+    /**
+     * Default constructor
+     */
+    public VRPvehiclesProblem() {
+        super();
+    }
 
-	@Override
-	public void setSize(int size) {
-		this.distances.setSize(size);
-	}
+    /**
+     * Constructor using the 'size' attribute
+     * @param size
+     */
+    public VRPvehiclesProblem(int size) {
+        super();
+        this.distances.setSize(size);
+    }
 
-	@Override
-	public int[][] getDistances() {
-		return distances.getDistances();
-	}
+    /**
+     * Constructor with size and distances
+     * @param size
+     * @param distances
+     */
+    public VRPvehiclesProblem(int size, int[][] distances) {
+        super();
+        this.distances.setSize(size);
+        this.distances.setDistances(distances);
+    }
 
+    /**
+     * Constructor using text file
+     * @param filename
+     */
+    public VRPvehiclesProblem(String filename) {
+        super();
+        this.textInstances = LoadDataFromFile(filename);
+    }
 
-	@Override
-	public void setDistances(int[][] distances) {
-		this.distances.setDistances(distances);
-	}
-	
+    @Override
+    public int getSize() {
+        return distances.getSize();
+    }
 
-	@Override
-	public String getTextInstances() {
-		return textInstances;
-	}
+    @Override
+    public void setSize(int size) {
+        this.distances.setSize(size);
+    }
 
+    @Override
+    public int[][] getDistances() {
+        return distances.getDistances();
+    }
 
-	@Override
-	public void setTextInstances(String textInstances) {
-		this.textInstances = textInstances;
-	}
+    @Override
+    public void setDistances(int[][] distances) {
+        this.distances.setDistances(distances);
+    }
 
+    @Override
+    public String getTextInstances() {
+        return textInstances;
+    }
 
-	@Override
-	public void getInstance() {
-		this.toString();
-	}
+    @Override
+    public void setTextInstances(String textInstances) {
+        this.textInstances = textInstances;
+    }
 
+    @Override
+    public void getInstance() {
+        this.toString();
+    }
 
-	@Override
-	public void setInstance(int[][] instance) {
-		this.distances.setDistances(instance);
-	}
+    @Override
+    public void setInstance(int[][] instance) {
+        this.distances.setDistances(instance);
+    }
 
+    // The instancesfromFile method seems to be commented out.
+    @Override
+    public void instancesfromFile() {
+        // This section was commented on the original code, to check it again, check previous commits
+    }
 
-	@Override
-	public void instancesfromFile(){
-		/*
-		ArrayList<Mochila> mochilas = new ArrayList<Mochila>();
-		String[] instancias = textInstances.split(";");
+    @Override
+    public void randomInstances() {
+        int size = distances.getSize();
+        int[][] randomDistances = new int[size][size];
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (i != j) {
+                    randomDistances[i][j] = random.nextInt(100); // Reuse the same Random instance BUGFIX
+                } else {
+                    randomDistances[i][j] = 0;
+                }
+            }
+        }
+        distances.setDistances(randomDistances);
+    }
 
-		for( String instancia : instancias ){
+    @Override
+    public String LoadDataFromFile(String filename) {
+        // Reading the file containing the instances
+        FileReader file = null;
+        char[] buff = new char[1024 * 10];
+        int length;
+        try {
+            file = new FileReader(filename);
+            length = file.read(buff);
+        } catch (IOException e) {
+            System.out.println("Error. " + e.getMessage());
+            System.exit(0);
+            return "";
+        } finally {
+            try {
+                if (file != null) {
+                    file.close();
+                }
+            } catch (IOException e) {
+                System.out.println("Error closing file. " + e.getMessage());
+            }
+        }
+        return new String(buff, 0, length);
+    }
 
-			String[] partes = instancia.split(":");
-			int capacidade = new Integer( partes[0].trim() );
-			ArrayList<Item> items = new ArrayList<Item>();
-			String[] stritems = partes[1].trim().split( "," );
-			
-			for( String item : stritems ){
+    @Override
+    public int getDistance(int i, int j) {
+        return distances.getDistances()[i][j];
+    }
 
-				String[] atributos = item.split( "-" );
-				items.add( new Item( new Integer( atributos[0].trim() ), new Integer( atributos[1].trim() ) ) );
-			}
-			
-			mochilas.add( new Mochila( capacidade, items ) );
-		}
-		
-		instancia = mochilas;
-		*/
-	}
-	
-	/* (non-Javadoc)
-	 * @see problems.RoutingProblems#randomInstances()
-	 */
-	@Override
-	public void randomInstances(){
-	    distances.setDistances(new int[distances.getSize()][distances.getSize()]);
-		for(int i=0; i<distances.getSize(); i++){
-			for(int j=0; j<distances.getSize(); j++){
-				if(i != j) distances.getDistances()[i][j] = (int)(new Random().nextDouble()*100);
-				else distances.getDistances()[i][j] = 0; 
-			}
-		}
-	}
-	
-	
-	@Override
-	public String LoadDataFromFile(String filename){
-		// Reading the file containing the instances
-		FileReader file = null;
-		char[] buff = new char[ 1024*10 ];
-		try {
-			file = new FileReader( filename );
-			file.read( buff );
-		} catch (IOException e) {
-			System.out.println("Error. " + e.getMessage());
-			System.exit(0);
-		}
-		return new String( buff );
-
-	}
-	
-
-	@Override
-	public int getDistance(int i , int j){
-		return distances.getDistances()[i][j];
-	}
-	
-	
-	@Override
-	public String toString() {
+ public String toString() {
 		char nodo = 65;
 		String s = "\t"+"A"+"\t"+"B"+"\t"+"C"+"\t"+"D"+"\t"+"E"+"\n";
 		for( int i = 0 ; i < distances.getDistances().length ; i++ ){
-
 			s += (char)(nodo+i)+"\t";
 			for( int j = 0 ; j < distances.getDistances()[i].length ; j++ )
 				s += distances.getDistances()[i][j]+"\t";
@@ -228,7 +208,6 @@ public class VRPvehiclesProblem extends Problem implements IRoutingProblems {
 		}
 		return minDistanceIndex;
 	}
-
 	
 	@Override
 	public int closestNode(int i,int[] tab){
