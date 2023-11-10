@@ -3,6 +3,15 @@
 Este repositorio explora la aplicación de metaheurísticas para abordar problemas logísticos desafiantes, como el BPP (Container Loading Problem) y el VRP (Vehicle Routing Problem).
 
 ![LOGO](./logo/MFL_logo.png)
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=edujbarrios_Metaheuristics-for-Logistics&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=edujbarrios_Metaheuristics-for-Logistics)
+
+
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=edujbarrios_Metaheuristics-for-Logistics)](https://sonarcloud.io/summary/new_code?id=edujbarrios_Metaheuristics-for-Logistics)
+
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=edujbarrios_Metaheuristics-for-Logistics)
+
+
 ## 📋 Descripción de problemas
 
 ### 1. BPP (Problema de Carga de Contenedores)
@@ -60,8 +69,3 @@ Este proyecto es una copia modificada del autor original. Realizado por:
 - Laura Inés González González
 - Eduardo Barrios García
 - Paula Regalado De León
-
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=edujbarrios_Metaheuristics-for-Logistics&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=edujbarrios_Metaheuristics-for-Logistics)
-
-
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=edujbarrios_Metaheuristics-for-Logistics)](https://sonarcloud.io/summary/new_code?id=edujbarrios_Metaheuristics-for-Logistics)
