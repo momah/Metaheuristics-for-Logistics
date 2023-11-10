@@ -2,7 +2,7 @@
 
 Este repositorio explora la aplicación de metaheurísticas para abordar problemas logísticos desafiantes, como el BPP (Container Loading Problem) y el VRP (Vehicle Routing Problem).
 
-![LOGO](./MFL_logo.png)
+![LOGO](MFL_logo.png)
 ## 📋 Descripción de problemas
 
 ### 1. BPP (Problema de Carga de Contenedores)
