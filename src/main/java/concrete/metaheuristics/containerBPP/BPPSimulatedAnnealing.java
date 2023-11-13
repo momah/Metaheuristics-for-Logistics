@@ -1,110 +1,142 @@
 package concrete.metaheuristics.containerBPP;
-
 import java.util.ArrayList;
 import java.util.Random;
-
 import abstracts.metaheuristics.LoadingAbsractMHeuristics;
 import abstracts.problem.ILoadingProblems;
 import abstracts.solution.ILoadingSolutions;
 import concrete.solutions.BPPcontainerSolution;
 
+/**
+ * Clase que implementa el algoritmo de Simulated Annealing para el problema de Bin Packing.
+ */
 public class BPPSimulatedAnnealing extends LoadingAbsractMHeuristics {
 
-	public BPPSimulatedAnnealing(ILoadingProblems instancia) {
-		super(instancia);
-		// TODO Auto-generated constructor stub
-	}
+    private final int maxIterationsI = 10;
+    private final int maxIterationsK = 20;
+    private final double alpha = 0.9;
+    private ArrayList<BPPcontainerSolution> bPPcontainerSolutions;
+    private Random random; // Instancia de Random para reutilización
 
-	private final int maxIterationsI = 10;
-	private final int maxIterationsK = 20;
-	private final double alpha = 0.9;
-	private ArrayList<BPPcontainerSolution> bPPcontainerSolutions;
-	
-	public void solve(){
-		BPPcontainerSolution initialSolution = initialSolution();
-		bestSolution(initialSolution);
-	}
+    /**
+     * Constructor para la clase BPPSimulatedAnnealing.
+     * @param instancia Instancia del problema de Bin Packing a ser resuelto.
+     */
+    public BPPSimulatedAnnealing(ILoadingProblems instancia) {
+        super(instancia);
+        this.random = new Random(); // Inicialización de la instancia Random
+    }
 
-	/**
-	 * @param initialSolution
-	 */
-	private void bestSolution(BPPcontainerSolution initialSolution) {
-		BPPcontainerSolution newSolution = null;
-		double temperature = this.temperaturaInicial(this.lProblem);
-		int k = 0;
-		
-		do {
-			int i = 0;
-			do {
-				newSolution = this.sucessorRandom( initialSolution );
-				int variance = newSolution.priority() - initialSolution.priority();
-				
-				if( variance >= 0 && !newSolution.full() ){	
-					initialSolution = newSolution;
-					this.addSolution( initialSolution );
-				} else {
-					double rand = this.randomPercent();
-					double pVariance = -((double)variance / temperature);
-				
-					if( pVariance > rand && !newSolution.full() ){		
-						initialSolution = newSolution;
-						this.addSolution( initialSolution );
-					}
-				}
-				i++;
-				
-			} while( i < this.maxIterationsI );
-			
-			k++;
-			temperature = this.alpha * temperature;
-						
-		} while( k < this.maxIterationsK );
-		
-		this.printBestSolution();
-	}
+    /**
+     * Método principal para resolver el problema de Bin Packing.
+     */
+    public void solve() {
+        BPPcontainerSolution initialSolution = initialSolution();
+        bestSolution(initialSolution);
+    }
 
-	/**
-	 * @return
-	 */
-	private BPPcontainerSolution initialSolution() {
-		this.bPPcontainerSolutions = new ArrayList<BPPcontainerSolution>();
-		BPPcontainerSolution initialSolution = null;
-		
-		do {
-			initialSolution = this.randomSolution(lProblem);
-		} while( initialSolution.full() );
-		
-		this.bPPcontainerSolutions.add( initialSolution );
-		this.printSolution( initialSolution );
-		return initialSolution;
-	}
-	
-	private void addSolution( BPPcontainerSolution bPPcontainerSolution ){
-		this.bPPcontainerSolutions.add( bPPcontainerSolution );
-		this.printSolution( bPPcontainerSolution );
-	}
-	
+    /**
+     * Método para encontrar la mejor solución mediante Simulated Annealing.
+     * @param initialSolution Solución inicial para el algoritmo.
+     */
+    private void bestSolution(BPPcontainerSolution initialSolution) {
+        BPPcontainerSolution newSolution = null;
+        double temperature = this.temperaturaInicial(this.lProblem);
+        int k = 0;
 
-	
-	private double temperaturaInicial( ILoadingProblems bppProblem ){
-		return bppProblem.pesoItems();
-	}
-	
-	private BPPcontainerSolution sucessorRandom( BPPcontainerSolution bPPcontainerSolution ){
-		int index = new Random().nextInt( bPPcontainerSolution.getProblemInstance().getNumItems() );
-		return new BPPcontainerSolution( bPPcontainerSolution, index );
-	}
-	
-	private double randomPercent(){
-		return new Random().nextDouble();
-	}
-	
-	protected void printBestSolution(){
-		ILoadingSolutions best = this.bPPcontainerSolutions.get(0);
-		for( ILoadingSolutions Solution : this.bPPcontainerSolutions )
-			if( Solution.priority() > best.priority() )
-				best = Solution;
-		System.out.println( "SIMULATED ANNEALING:\n" + best.toString( true, true ) + "\n" );
-	}
-	
+        // Bucle principal de Simulated Annealing
+        do {
+            int i = 0;
+            do {
+                newSolution = this.sucessorRandom(initialSolution);
+                int variance = newSolution.priority() - initialSolution.priority();
+
+                // Lógica para aceptar nuevas soluciones
+                if (variance >= 0 && !newSolution.full()) {
+                    initialSolution = newSolution;
+                    this.addSolution(initialSolution);
+                } else {
+                    double rand = this.randomPercent();
+                    double pVariance = -((double) variance / temperature);
+
+                    if (pVariance > rand && !newSolution.full()) {
+                        initialSolution = newSolution;
+                        this.addSolution(initialSolution);
+                    }
+                }
+                i++;
+            } while (i < this.maxIterationsI);
+
+            k++;
+            temperature = this.alpha * temperature;
+
+        } while (k < this.maxIterationsK);
+
+        this.printBestSolution();
+    }
+
+    /**
+     * Método para generar una solución inicial.
+     * @return Solución inicial generada aleatoriamente.
+     */
+    private BPPcontainerSolution initialSolution() {
+        this.bPPcontainerSolutions = new ArrayList<>();
+        BPPcontainerSolution initialSolution;
+
+        do {
+            initialSolution = this.randomSolution(lProblem);
+        } while (initialSolution.full());
+
+        this.bPPcontainerSolutions.add(initialSolution);
+        this.printSolution(initialSolution);
+        return initialSolution;
+    }
+
+    /**
+     * Añade una solución al conjunto de soluciones.
+     * @param bPPcontainerSolution Solución a añadir.
+     */
+    private void addSolution(BPPcontainerSolution bPPcontainerSolution) {
+        this.bPPcontainerSolutions.add(bPPcontainerSolution);
+        this.printSolution(bPPcontainerSolution);
+    }
+
+    /**
+     * Calcula la temperatura inicial basándose en el peso de los ítems del problema.
+     * @param bppProblem Problema de Bin Packing.
+     * @return Temperatura inicial.
+     */
+    private double temperaturaInicial(ILoadingProblems bppProblem) {
+        return bppProblem.pesoItems();
+    }
+
+    /**
+     * Genera una solución sucesora de manera aleatoria.
+     * @param bPPcontainerSolution Solución actual.
+     * @return Nueva solución generada.
+     */
+    private BPPcontainerSolution sucessorRandom(BPPcontainerSolution bPPcontainerSolution) {
+        int index = this.random.nextInt(bPPcontainerSolution.getProblemInstance().getNumItems());
+        return new BPPcontainerSolution(bPPcontainerSolution, index);
+    }
+
+    /**
+     * Genera un porcentaje aleatorio.
+     * @return Valor aleatorio entre 0.0 y 1.0.
+     */
+    private double randomPercent() {
+        return this.random.nextDouble();
+    }
+
+    /**
+     * Imprime la mejor solución encontrada.
+     */
+    protected void printBestSolution() {
+        ILoadingSolutions best = this.bPPcontainerSolutions.get(0);
+        for (ILoadingSolutions Solution : this.bPPcontainerSolutions)
+            if (Solution.priority() > best.priority())
+                best = Solution;
+        System.out.println("SIMULATED ANNEALING:\n" + best.toString(true, true) + "\n");
+    }
+
 }
+
