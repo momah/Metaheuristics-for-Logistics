@@ -1,20 +1,13 @@
-/*
- * 
- * Coparar las metahueristicas las que se parecen
- * y de ahí podemos deducir las semejanzas en abstract method y solucion
- * 
- * 
- * */
-package main;
+package main.java;
 
 import java.util.Scanner;
 
 
 public class Tests {
-	
+
 	static final int OPCION1 = 1;
 	static final int OPCION2 = 2;
-	
+
 	public static void main( String[] args ){
 		Scanner sc = new Scanner(System.in);
 		int opcion;
@@ -23,19 +16,19 @@ public class Tests {
 			opcion = sc.nextInt();
 			try {
 				if (opcion == OPCION1) {
-					BPPcontainerView.run(sc);
+					main.BPPcontainerView.run(sc);
 				} else if (opcion == OPCION2) {
-					VRPvehiclesView.run(sc);
+					main.VRPvehiclesView.run(sc);
 				}
-	
+
 			} catch (CloneNotSupportedException e) {
 				e.printStackTrace();
 			}
-			
-		} while(opcion !=0);	
-			
+
+		} while(opcion !=0);
+
 	}
-	
+
 	public static void printMenu(){
 		String[] menu ={
 				"------------------------------------------------",
@@ -51,8 +44,8 @@ public class Tests {
 			for (int i=0;i<menu.length;i++){
 				System.out.println(menu[i]);
 			}
-			System.out.print("Option : ");	
+			System.out.print("Option : ");
 	}
-	
+
 
 }
