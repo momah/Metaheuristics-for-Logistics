@@ -91,7 +91,30 @@ public class VRPvehiclesProblem extends Problem implements IRoutingProblems {
     // The instancesfromFile method seems to be commented out.
     @Override
     public void instancesfromFile() {
-        // This section was commented on the original code, to check it again, check previous commits
+
+	    //adding instances from files
+   	
+		ArrayList<Mochila> mochilas = new ArrayList<Mochila>();
+		String[] instancias = textInstances.split(";");
+
+		for( String instancia : instancias ){
+
+			String[] partes = instancia.split(":");
+			int capacidade = new Integer( partes[0].trim() );
+			ArrayList<Item> items = new ArrayList<Item>();
+			String[] stritems = partes[1].trim().split( "," );
+			
+			for( String item : stritems ){
+
+				String[] atributos = item.split( "-" );
+				items.add( new Item( new Integer( atributos[0].trim() ), new Integer( atributos[1].trim() ) ) );
+			}
+			
+			mochilas.add( new Mochila( capacidade, items ) );
+		}
+		
+		instancia = mochilas;
+	
     }
 
     @Override
