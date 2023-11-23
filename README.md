@@ -8,9 +8,6 @@ Este repositorio explora la aplicación de metaheurísticas para abordar problem
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=edujbarrios_Metaheuristics-for-Logistics&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=edujbarrios_Metaheuristics-for-Logistics)
 
-
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=edujbarrios_Metaheuristics-for-Logistics)](https://sonarcloud.io/summary/new_code?id=edujbarrios_Metaheuristics-for-Logistics)
-
 ## 📋 Descripción de problemas
 
 ### 1. BPP (Problema de Carga de Contenedores)
