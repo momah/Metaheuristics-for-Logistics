@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.55.0" timestamp="2023-11-21T22:52:26.909">
+<file name="/Users/eduardoj.barriosgarcia/Desktop/LDH PROYECTO/src/main/java/abstracts/metaheuristics/LoadingAbsractMHeuristics.java">
+<violation beginline="40" endline="40" begincolumn="23" endcolumn="26" rule="UselessParentheses" ruleset="Code Style" package="abstracts.metaheuristics" class="LoadingAbsractMHeuristics" method="randomSolution" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+</file>
+<file name="/Users/eduardoj.barriosgarcia/Desktop/LDH PROYECTO/src/main/java/concrete/Problems/containerBPP/BPPcontainerProblem.java">
+<violation beginline="13" endline="13" begincolumn="20" endcolumn="54" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="concrete.Problems.containerBPP" class="BPPcontainerProblem" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+Unnecessary use of fully qualified name 'concrete.Problems.containerBPP.Item' due to existing same package import 'concrete.Problems.containerBPP.*'
+</violation>
+<violation beginline="30" endline="30" begincolumn="53" endcolumn="87" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="concrete.Problems.containerBPP" class="BPPcontainerProblem" method="BPPcontainerProblem" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+Unnecessary use of fully qualified name 'concrete.Problems.containerBPP.Item' due to existing same package import 'concrete.Problems.containerBPP.*'
+</violation>
+<violation beginline="57" endline="57" begincolumn="18" endcolumn="48" rule="PrimitiveWrapperInstantiation" ruleset="Best Practices" package="concrete.Problems.containerBPP" class="BPPcontainerProblem" method="instancesFromText" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#primitivewrapperinstantiation" priority="3">
+Do not use `new Integer(...)`, prefer `Integer.valueOf(...)`
+</violation>
+<violation beginline="58" endline="58" begincolumn="13" endcolumn="47" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="concrete.Problems.containerBPP" class="BPPcontainerProblem" method="instancesFromText" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+Unnecessary use of fully qualified name 'concrete.Problems.containerBPP.Item' due to existing same package import 'concrete.Problems.containerBPP.*'
+</violation>
+<violation beginline="58" endline="58" begincolumn="72" endcolumn="106" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="concrete.Problems.containerBPP" class="BPPcontainerProblem" method="instancesFromText" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+Unnecessary use of fully qualified name 'concrete.Problems.containerBPP.Item' due to existing same package import 'concrete.Problems.containerBPP.*'
+</violation>
+<violation beginline="63" endline="63" begincolumn="56" endcolumn="89" rule="PrimitiveWrapperInstantiation" ruleset="Best Practices" package="concrete.Problems.containerBPP" class="BPPcontainerProblem" method="instancesFromText" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#primitivewrapperinstantiation" priority="3">
+Do not use `new Integer(...)`, prefer `Integer.valueOf(...)`
+</violation>
+<violation beginline="63" endline="63" begincolumn="92" endcolumn="125" rule="PrimitiveWrapperInstantiation" ruleset="Best Practices" package="concrete.Problems.containerBPP" class="BPPcontainerProblem" method="instancesFromText" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#primitivewrapperinstantiation" priority="3">
+Do not use `new Integer(...)`, prefer `Integer.valueOf(...)`
+</violation>
+<violation beginline="63" endline="63" begincolumn="19" endcolumn="53" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="concrete.Problems.containerBPP" class="BPPcontainerProblem" method="instancesFromText" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+Unnecessary use of fully qualified name 'concrete.Problems.containerBPP.Item' due to existing same package import 'concrete.Problems.containerBPP.*'
+</violation>
+<violation beginline="82" endline="82" begincolumn="9" endcolumn="43" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="concrete.Problems.containerBPP" class="BPPcontainerProblem" method="getItem" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+Unnecessary use of fully qualified name 'concrete.Problems.containerBPP.Item' due to existing same package import 'concrete.Problems.containerBPP.*'
+</violation>
+<violation beginline="90" endline="90" begincolumn="19" endcolumn="53" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="concrete.Problems.containerBPP" class="BPPcontainerProblem" method="getItems" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+Unnecessary use of fully qualified name 'concrete.Problems.containerBPP.Item' due to existing same package import 'concrete.Problems.containerBPP.*'
+</violation>
+<violation beginline="119" endline="119" begincolumn="8" endcolumn="42" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="concrete.Problems.containerBPP" class="BPPcontainerProblem" method="pesoItems" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+Unnecessary use of fully qualified name 'concrete.Problems.containerBPP.Item' due to existing same package import 'concrete.Problems.containerBPP.*'
+</violation>
+<violation beginline="132" endline="132" begincolumn="9" endcolumn="43" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="concrete.Problems.containerBPP" class="BPPcontainerProblem" method="toString" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+Unnecessary use of fully qualified name 'concrete.Problems.containerBPP.Item' due to existing same package import 'concrete.Problems.containerBPP.*'
+</violation>
+</file>
+<file name="/Users/eduardoj.barriosgarcia/Desktop/LDH PROYECTO/src/main/java/concrete/Problems/vehiclesVRP/VRPvehiclesProblem.java">
+<violation beginline="11" endline="11" begincolumn="13" endcolumn="47" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="concrete.Problems.vehiclesVRP" class="VRPvehiclesProblem" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+Unnecessary use of fully qualified name 'concrete.Problems.vehiclesVRP.Edges' due to existing same package import 'concrete.Problems.vehiclesVRP.*'
+</violation>
+<violation beginline="11" endline="11" begincolumn="65" endcolumn="99" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="concrete.Problems.vehiclesVRP" class="VRPvehiclesProblem" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+Unnecessary use of fully qualified name 'concrete.Problems.vehiclesVRP.Edges' due to existing same package import 'concrete.Problems.vehiclesVRP.*'
+</violation>
+</file>
+<file name="/Users/eduardoj.barriosgarcia/Desktop/LDH PROYECTO/src/main/java/concrete/metaheuristics/containerBPP/BPPGrasp.java">
+<violation beginline="66" endline="66" begincolumn="61" endcolumn="67" rule="UnusedFormalParameter" ruleset="Best Practices" package="concrete.metaheuristics.containerBPP" class="BPPGrasp" method="localSearch" variable="problem" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedformalparameter" priority="3">
+Avoid unused method parameters such as 'problem'.
+</violation>
+</file>
+<file name="/Users/eduardoj.barriosgarcia/Desktop/LDH PROYECTO/src/main/java/concrete/metaheuristics/vehiclesVRP/VRPHillClimbingModified.java">
+<violation beginline="7" endline="7" begincolumn="46" endcolumn="96" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="concrete.metaheuristics.vehiclesVRP" class="VRPHillClimbingModified" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+Unnecessary use of fully qualified name 'concrete.metaheuristics.vehiclesVRP.VRPHillClimbing' due to existing same package import 'concrete.metaheuristics.vehiclesVRP.*'
+</violation>
+</file>
+<file name="/Users/eduardoj.barriosgarcia/Desktop/LDH PROYECTO/src/main/java/concrete/metaheuristics/vehiclesVRP/VRPSimulatedAnnealing.java">
+<violation beginline="43" endline="43" begincolumn="26" endcolumn="77" rule="UselessParentheses" ruleset="Code Style" package="concrete.metaheuristics.vehiclesVRP" class="VRPSimulatedAnnealing" method="acceptProbability" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+</file>
+<file name="/Users/eduardoj.barriosgarcia/Desktop/LDH PROYECTO/src/main/java/concrete/solutions/BPPcontainerSolution.java">
+<violation beginline="110" endline="112" begincolumn="16" endcolumn="9" rule="EmptyControlStatement" ruleset="Code Style" package="concrete.solutions" class="BPPcontainerSolution" method="addNextItem" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#emptycontrolstatement" priority="3">
+Empty else statement
+</violation>
+<violation beginline="138" endline="141" begincolumn="17" endcolumn="17" rule="CollapsibleIfStatements" ruleset="Design" package="concrete.solutions" class="BPPcontainerSolution" method="getBestItemIndex" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#collapsibleifstatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="160" endline="168" begincolumn="21" endcolumn="21" rule="CollapsibleIfStatements" ruleset="Design" package="concrete.solutions" class="BPPcontainerSolution" method="tryAddOneMore" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_design.html#collapsibleifstatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+<file name="/Users/eduardoj.barriosgarcia/Desktop/LDH PROYECTO/src/main/java/concrete/solutions/VRPvehiclesSolution.java">
+<violation beginline="42" endline="42" begincolumn="71" endcolumn="77" rule="UnusedFormalParameter" ruleset="Best Practices" package="concrete.solutions" class="VRPvehiclesSolution" method="VRPvehiclesSolution" variable="methode" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_bestpractices.html#unusedformalparameter" priority="3">
+Avoid unused constructor parameters such as 'methode'.
+</violation>
+<violation beginline="201" endline="201" begincolumn="18" endcolumn="35" rule="OverrideBothEqualsAndHashcode" ruleset="Error Prone" package="concrete.solutions" class="VRPvehiclesSolution" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_errorprone.html#overridebothequalsandhashcode" priority="3">
+Ensure you override both equals() and hashCode()
+</violation>
+</file>
+</pmd>
