@@ -1,13 +1,11 @@
-package abstracts.solution;
+package main.java.abstracts.solution;
 
 import java.util.ArrayList;
 
-import abstracts.problem.IRoutingProblems;
-import concrete.solutions.VRPvehiclesSolution;
+import main.java.abstracts.problem.IRoutingProblems;
+import main.java.concrete.solutions.VRPvehiclesSolution;
 
 public interface IRoutingSolutions {
-
-
 	int getSize();
 	void setSize(int size);
 	void initialiserSolution();
@@ -22,5 +20,4 @@ public interface IRoutingSolutions {
 	boolean equals(Object obj);
 	void setSolution(Object[] array);
 	void randomSolutionModified();
-
 }

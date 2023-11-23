@@ -1,8 +1,6 @@
-package abstracts.problem;
+package main.java.abstracts.problem;
 
 public interface IRoutingProblems {
-
-
 	int getSize();
 	void setSize(int size);
 	int[][] getDistances();
@@ -17,5 +15,4 @@ public interface IRoutingProblems {
 	int getDistance(int i, int j);
 	String toString();
 	int closestNode(int i, int[] tab);
-
 }

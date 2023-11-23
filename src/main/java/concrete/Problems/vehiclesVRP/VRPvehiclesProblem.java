@@ -1,10 +1,10 @@
-package concrete.Problems.vehiclesVRP;
+package main.java.concrete.Problems.vehiclesVRP;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
-import abstracts.problem.IRoutingProblems;
-import abstracts.problem.Problem;
+import main.java.abstracts.problem.IRoutingProblems;
+import main.java.abstracts.problem.Problem;
 
 public class VRPvehiclesProblem extends Problem implements IRoutingProblems {
 
@@ -88,33 +88,21 @@ public class VRPvehiclesProblem extends Problem implements IRoutingProblems {
         this.distances.setDistances(instance);
     }
 
-    // The instancesfromFile method seems to be commented out.
     @Override
-    public void instancesfromFile() {
+    public void instancesfromFile() { // Modificado para issue
+        String[] lines = textInstances.split("\n");
+        int size = lines.length - 1; // Resta 1 para excluir la línea de encabezados
+        this.distances.setSize(size);
+        int[][] distancesArray = new int[size][size];
 
-	    //adding instances from files
-   	
-		ArrayList<Mochila> mochilas = new ArrayList<Mochila>();
-		String[] instancias = textInstances.split(";");
+        for (int i = 1; i <= size; i++) { // Comienza en 1 para omitir la línea de encabezados
+            String[] distanceValues = lines[i].split("\t"); // Asume que los valores están separados por tabuladores
+            for (int j = 1; j < distanceValues.length; j++) { // Comienza en 1 para omitir la etiqueta de la fila
+                distancesArray[i - 1][j - 1] = Integer.parseInt(distanceValues[j].trim());
+            }
+        }
 
-		for( String instancia : instancias ){
-
-			String[] partes = instancia.split(":");
-			int capacidade = new Integer( partes[0].trim() );
-			ArrayList<Item> items = new ArrayList<Item>();
-			String[] stritems = partes[1].trim().split( "," );
-			
-			for( String item : stritems ){
-
-				String[] atributos = item.split( "-" );
-				items.add( new Item( new Integer( atributos[0].trim() ), new Integer( atributos[1].trim() ) ) );
-			}
-			
-			mochilas.add( new Mochila( capacidade, items ) );
-		}
-		
-		instancia = mochilas;
-	
+        this.distances.setDistances(distancesArray);
     }
 
     @Override
@@ -124,7 +112,7 @@ public class VRPvehiclesProblem extends Problem implements IRoutingProblems {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (i != j) {
-                    randomDistances[i][j] = random.nextInt(100); // Reuse the same Random instance BUGFIX
+                    randomDistances[i][j] = random.nextInt(100); // Reusa la misma instancia Random BUGFIX
                 } else {
                     randomDistances[i][j] = 0;
                 }
@@ -135,17 +123,16 @@ public class VRPvehiclesProblem extends Problem implements IRoutingProblems {
 
     @Override
     public String LoadDataFromFile(String filename) {
-        // Reading the file containing the instances
         FileReader file = null;
         char[] buff = new char[1024 * 10];
         int length;
         try {
             file = new FileReader(filename);
             length = file.read(buff);
+            return new String(buff, 0, length);
         } catch (IOException e) {
-            System.out.println("Error. " + e.getMessage());
-            System.exit(0);
-            return "";
+            System.out.println("Error reading file. " + e.getMessage());
+            return null;
         } finally {
             try {
                 if (file != null) {
@@ -155,7 +142,6 @@ public class VRPvehiclesProblem extends Problem implements IRoutingProblems {
                 System.out.println("Error closing file. " + e.getMessage());
             }
         }
-        return new String(buff, 0, length);
     }
 
     @Override
@@ -163,7 +149,7 @@ public class VRPvehiclesProblem extends Problem implements IRoutingProblems {
         return distances.getDistances()[i][j];
     }
 
- public String toString() {
+    public String toString() {
 		char nodo = 65;
 		String s = "\t"+"A"+"\t"+"B"+"\t"+"C"+"\t"+"D"+"\t"+"E"+"\n";
 		for( int i = 0 ; i < distances.getDistances().length ; i++ ){
@@ -174,6 +160,7 @@ public class VRPvehiclesProblem extends Problem implements IRoutingProblems {
 		}
 		return s;
 	}
+
 	/**
 	 * Returns true if the value i is in the array tab, false otherwise 
 	 * @param i
@@ -186,6 +173,7 @@ public class VRPvehiclesProblem extends Problem implements IRoutingProblems {
 		}
 		return false;
 	}
+
 	/**
 	 * Return the minimum of row i
 	 * @param i
@@ -208,6 +196,7 @@ public class VRPvehiclesProblem extends Problem implements IRoutingProblems {
 		}
 		return minDistanceIndex;
 	}
+    
 	/**
 	 * Return the minimum of column j
 	 * @param j

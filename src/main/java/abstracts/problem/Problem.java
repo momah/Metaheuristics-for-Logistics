@@ -1,13 +1,8 @@
-package abstracts.problem;
+package main.java.abstracts.problem;
 
 public abstract class Problem {
-
 	protected String textInstances;
 
-	
-	/**
-	 * 
-	 */
 	public Problem() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -28,6 +23,4 @@ public abstract class Problem {
 	public void setTextInstances(String textInstances) {
 		this.textInstances = textInstances;
 	}
-
-	
 }

@@ -1,22 +1,20 @@
-package concrete.metaheuristics.vehiclesVRP;
+package main.java.concrete.metaheuristics.vehiclesVRP;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-import abstracts.metaheuristics.RoutingAbsractMHeuristics;
-import abstracts.problem.IRoutingProblems;
-import abstracts.solution.IRoutingSolutions;
-import concrete.solutions.VRPvehiclesSolution;
+import main.java.abstracts.metaheuristics.RoutingAbsractMHeuristics;
+import main.java.abstracts.problem.IRoutingProblems;
+import main.java.abstracts.solution.IRoutingSolutions;
+import main.java.concrete.solutions.VRPvehiclesSolution;
 
 public class VRPTabu extends RoutingAbsractMHeuristics {
-
 	ArrayList<VRPvehiclesSolution> tabuList;
 	
 	public VRPTabu(IRoutingProblems rProblem) {
 		super(rProblem);
 		this.tabuList = new ArrayList<>();
 	}
-
 
 	public IRoutingSolutions randomNeighbour() throws CloneNotSupportedException{
 		int j = (int)((Math.random()*(problem.getSize()-1)));
@@ -26,6 +24,7 @@ public class VRPTabu extends RoutingAbsractMHeuristics {
 	public VRPvehiclesSolution getMinNeighbour() throws CloneNotSupportedException{
 		return Collections.min(solution.getNeighbours());
 	}
+
 	@Override
 	public void solve() throws CloneNotSupportedException {
 		long start = this.printInicialSolution(problem);
@@ -48,7 +47,4 @@ public class VRPTabu extends RoutingAbsractMHeuristics {
 
 		System.out.println("Average time : "+(end-start)/1000+" us");
 	}
-	
-	
-
 }

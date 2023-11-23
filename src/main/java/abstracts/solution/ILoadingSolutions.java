@@ -1,9 +1,8 @@
-package abstracts.solution;
+package main.java.abstracts.solution;
 
-import abstracts.problem.ILoadingProblems;
+import main.java.abstracts.problem.ILoadingProblems;
 
 public interface ILoadingSolutions {
-
 	boolean full();
 	int size();
 	int priority();
@@ -17,5 +16,4 @@ public interface ILoadingSolutions {
 	void removeItem(int index);
 	void tryAddOneMore();
 	int compareTo(Object o);
-
 }

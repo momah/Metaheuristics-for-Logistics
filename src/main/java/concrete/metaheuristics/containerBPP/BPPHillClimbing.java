@@ -1,11 +1,10 @@
-package concrete.metaheuristics.containerBPP;
+package main.java.concrete.metaheuristics.containerBPP;
 
-import abstracts.metaheuristics.LoadingAbsractMHeuristics;
-import abstracts.problem.ILoadingProblems;
-import concrete.solutions.BPPcontainerSolution;
+import main.java.abstracts.metaheuristics.LoadingAbsractMHeuristics;
+import main.java.abstracts.problem.ILoadingProblems;
+import main.java.concrete.solutions.BPPcontainerSolution;
 
 public class BPPHillClimbing extends LoadingAbsractMHeuristics {
-	
 	/**
 	 * @param actual
 	 * @param instancia
@@ -20,9 +19,6 @@ public class BPPHillClimbing extends LoadingAbsractMHeuristics {
 		bestSolution();	
 	}
 
-	/**
-	 * 
-	 */
 	private void bestSolution() {
 		while(true){
 			BPPcontainerSolution neighbor = this.getMinNeighbour(solution);
@@ -33,9 +29,6 @@ public class BPPHillClimbing extends LoadingAbsractMHeuristics {
 		this.printBestSolution();
 	}
 
-	/**
-	 * 
-	 */
 	private void initialSolution() {
 		do {
 			this.solution = this.randomSolution(lProblem);
@@ -44,7 +37,6 @@ public class BPPHillClimbing extends LoadingAbsractMHeuristics {
 	}
 	
 	private BPPcontainerSolution getMinNeighbour(BPPcontainerSolution actualSolution){
-		
 		BPPcontainerSolution newSolution = null;
 		BPPcontainerSolution bestSolution = actualSolution;
 		int bestValue = bestSolution.priority();

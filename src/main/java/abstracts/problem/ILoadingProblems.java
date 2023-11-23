@@ -1,13 +1,10 @@
-package abstracts.problem;
+package main.java.abstracts.problem;
 
 import java.util.ArrayList;
 
-import concrete.Problems.containerBPP.Item;
-
-
+import main.java.concrete.Problems.containerBPP.Item;
 
 public interface ILoadingProblems {
-	
 	void instancesFromText();
 	int getCapacity();
 	Item getItem(int index);
@@ -16,5 +13,4 @@ public interface ILoadingProblems {
 	String toString();
 	double pesoItems();
 	String toString(boolean outputitems);
-
 }

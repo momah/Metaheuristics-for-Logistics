@@ -1,9 +1,10 @@
-package abstracts.metaheuristics;
+package main.java.abstracts.metaheuristics;
 
 import java.util.Random;
-import abstracts.problem.ILoadingProblems;
-import abstracts.solution.ILoadingSolutions;
-import concrete.solutions.BPPcontainerSolution;
+
+import main.java.abstracts.problem.ILoadingProblems;
+import main.java.abstracts.solution.ILoadingSolutions;
+import main.java.concrete.solutions.BPPcontainerSolution;
 
 public abstract class LoadingAbsractMHeuristics {
     /**
@@ -67,5 +68,4 @@ public abstract class LoadingAbsractMHeuristics {
     protected void printBestSolution() {
         System.out.println("Final Solution :\n" + this.solution.toString(true, true) + "\n");
     }
-
 }

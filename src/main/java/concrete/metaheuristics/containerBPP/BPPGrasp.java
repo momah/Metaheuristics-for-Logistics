@@ -1,19 +1,16 @@
-package concrete.metaheuristics.containerBPP;
+package main.java.concrete.metaheuristics.containerBPP;
 
 import java.util.Random;
 
-import abstracts.metaheuristics.LoadingAbsractMHeuristics;
-import abstracts.problem.ILoadingProblems;
-import abstracts.solution.ILoadingSolutions;
-import concrete.solutions.BPPcontainerSolution;
-
+import main.java.abstracts.metaheuristics.LoadingAbsractMHeuristics;
+import main.java.abstracts.problem.ILoadingProblems;
+import main.java.abstracts.solution.ILoadingSolutions;
+import main.java.concrete.solutions.BPPcontainerSolution;
 
 public class BPPGrasp extends LoadingAbsractMHeuristics {
-
 	private double alpha;
 	private int interations;
 	private Random random = new Random();
-	
 	
 	/**
 	 * @param instance
@@ -45,12 +42,6 @@ public class BPPGrasp extends LoadingAbsractMHeuristics {
 			this.solution = alternativeSolution;
 	}
 		
-	
-	/**
-	 * Including an initial greedy solution
-	 * @param problem
-	 * @return 
-	 */
 	protected ILoadingSolutions initialSolution(){
 		this.solution = this.resetSolution(this.lProblem);
 		while( !this.solution.isFull() ){
@@ -78,7 +69,6 @@ public class BPPGrasp extends LoadingAbsractMHeuristics {
 						bestSolution = newSolution;
 				}
 			}
-			
 		} else {
 			newSolution = this._2optSwap( this.solution );
 			if( !newSolution.full() ){
@@ -86,19 +76,18 @@ public class BPPGrasp extends LoadingAbsractMHeuristics {
 				bestSolution.tryAddOneMore();
 			}
 		}
-		
 		return bestSolution;
 	}
 	
 	private BPPcontainerSolution _2optSwap( BPPcontainerSolution solution ){
 		int index1, index2;
-		// escolhendo randomicamente um item selecionado
+		// Escogiendo aleatoriamente un item seleccionado
 		do {
 			index1 = this.random.nextInt( solution.size() );
 		} while( solution.select( index1 ) );
-		// retirando este item da mochila
+		// Retirando este item del contenedor
 		solution.removeItem( index1 );
-		// adiciona um outro item nao selecionado ainda
+		// Añade otro item aún no seleccionado
 		do {
 			index2 = this.random.nextInt( solution.size() );
 		} while( !solution.select( index2 ) );
@@ -108,7 +97,4 @@ public class BPPGrasp extends LoadingAbsractMHeuristics {
 	protected void printBestSolution(){
 		System.out.println("Grasp:\n" + this.solution.toString(true,true) + "\n");
 	}
-	
-	
-	
 }

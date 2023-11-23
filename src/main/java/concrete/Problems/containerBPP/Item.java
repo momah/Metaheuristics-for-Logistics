@@ -1,13 +1,11 @@
-package concrete.Problems.containerBPP;
+package main.java.concrete.Problems.containerBPP;
 
 public class Item {
-	
 	private int itemArea;
 	private int priority;
 	private double priorityFactor;
 
 	public Item( int itemArea, int priority ){
-		
 		this.itemArea = itemArea;
 		this.priority = priority;
 		this.priorityFactor = (double)priority / (double)itemArea;
@@ -25,11 +23,7 @@ public class Item {
 		return this.priorityFactor;
 	}
 	
-	
-	
 	public String toString(){
-		
 		return "[ Item Area = " + this.itemArea + ", Priority = " + this.priority + " ]";
 	}
-
 }

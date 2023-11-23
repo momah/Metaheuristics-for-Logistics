@@ -1,17 +1,13 @@
-/**
- * 
- */
-package abstracts.solution;
+package main.java.abstracts.solution;
 
-import abstracts.metaheuristics.RoutingAbsractMHeuristics;
-import abstracts.problem.Problem;
+import main.java.abstracts.metaheuristics.RoutingAbsractMHeuristics;
+import main.java.abstracts.problem.Problem;
 
 /**
  * @author mmahrach
  *
  */
 public abstract class Solution implements Cloneable,Comparable<Object> {
-	
 	/**
 	 * The problem represents the Problem class object, which is an instance of the input data to solve.
 	 */
@@ -75,6 +71,4 @@ public abstract class Solution implements Cloneable,Comparable<Object> {
 	public void setMetaheuristics(RoutingAbsractMHeuristics metaheuristics) {
 		this.metaheuristics = metaheuristics;
 	}
-	
-
 }

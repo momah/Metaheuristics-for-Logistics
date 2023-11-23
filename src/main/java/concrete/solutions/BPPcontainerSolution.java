@@ -1,13 +1,12 @@
-package concrete.solutions;
+package main.java.concrete.solutions;
 
 import java.util.Random;
-import abstracts.problem.ILoadingProblems;
-import abstracts.solution.ILoadingSolutions;
-import abstracts.solution.Solution;
-import concrete.Problems.containerBPP.Item;
+import main.java.abstracts.problem.ILoadingProblems;
+import main.java.abstracts.solution.ILoadingSolutions;
+import main.java.abstracts.solution.Solution;
+import main.java.concrete.Problems.containerBPP.Item;
 
 public class BPPcontainerSolution extends Solution implements ILoadingSolutions {
-
     private boolean[] forbiden;
     private ILoadingProblems problem;
     private boolean full = false;

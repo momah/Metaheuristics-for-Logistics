@@ -1,11 +1,11 @@
-package concrete.Problems.containerBPP;
+package main.java.concrete.Problems.containerBPP;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import abstracts.problem.ILoadingProblems;
-import abstracts.problem.Problem;
+import main.java.abstracts.problem.ILoadingProblems;
+import main.java.abstracts.problem.Problem;
 
 public class BPPcontainerProblem extends Problem implements ILoadingProblems {
 
@@ -34,7 +34,7 @@ public class BPPcontainerProblem extends Problem implements ILoadingProblems {
 	}
 
 	public String LoadDataFromFile(String filename) {
-	    // lendo o arquivo que contem as instancias
+	    // Leyendo el archivo que contiene las instancias
 	    char[] buff = new char[1024 * 10];
 	
 	    try (FileReader file = new FileReader(filename)) {
@@ -43,7 +43,6 @@ public class BPPcontainerProblem extends Problem implements ILoadingProblems {
 	        System.out.println("Error. " + e.getMessage());
 	        System.exit(0);
 	    }
-	
 	    return new String(buff);
 	}
 	
@@ -79,7 +78,7 @@ public class BPPcontainerProblem extends Problem implements ILoadingProblems {
 	 * @see problems.LoadingProblems#getItem(int)
 	 */
 	@Override
-	public Item getItem( int index ){	
+	public Item getItem(int index ){
 		return this.items.get( index );
 	}
 	
@@ -104,7 +103,6 @@ public class BPPcontainerProblem extends Problem implements ILoadingProblems {
 	 */
 	@Override
 	public String toString(){
-		
 		return "{ CAPACITY = " + this.ContainerArea + " }";
 	}
 	
@@ -113,7 +111,6 @@ public class BPPcontainerProblem extends Problem implements ILoadingProblems {
 	 */
 	@Override
 	public double pesoItems(){
-		
 		double p = 0;
 		
 		for( Item item : this.items )
@@ -135,7 +132,4 @@ public class BPPcontainerProblem extends Problem implements ILoadingProblems {
 		}
 		return this.toString() + str;
 	}
-	
-
-	
 }

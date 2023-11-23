@@ -1,17 +1,15 @@
-package concrete.metaheuristics.vehiclesVRP;
+package main.java.concrete.metaheuristics.vehiclesVRP;
 
 import java.util.Collections;
 
-import abstracts.metaheuristics.RoutingAbsractMHeuristics;
-import abstracts.problem.IRoutingProblems;
-import concrete.solutions.VRPvehiclesSolution;
+import main.java.abstracts.metaheuristics.RoutingAbsractMHeuristics;
+import main.java.abstracts.problem.IRoutingProblems;
+import main.java.concrete.solutions.VRPvehiclesSolution;
 
 public class VRPHillClimbing extends RoutingAbsractMHeuristics {
-
 	public VRPHillClimbing(IRoutingProblems rProblem) {
 		super(rProblem);
 	}
-
 
 	public VRPvehiclesSolution getBestNeighbour() throws CloneNotSupportedException{
 		return Collections.min(this.solution.getNeighbours());
@@ -40,7 +38,4 @@ public class VRPHillClimbing extends RoutingAbsractMHeuristics {
 			} else break;
 		} while(true);
 	}
-	
-	
-
 }
