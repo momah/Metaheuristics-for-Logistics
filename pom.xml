@@ -16,8 +16,8 @@
         <sonar.projectKey>edujbarrios_Metaheuristics-for-Logistics</sonar.projectKey>
         <sonar.organization>metaheuristics-for-logistics-lab</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+           <maven.compiler.source>17</maven.compiler.source>
+           <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
   <dependencies>
