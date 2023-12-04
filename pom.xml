@@ -1,3 +1,4 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -9,6 +10,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
+
     <name>HeuristicsForLogistics</name>
     <url>http://maven.apache.org</url>
 
@@ -19,78 +21,107 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <jacoco.version>0.8.6</jacoco.version>
-        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-        <sonar.language>java</sonar.language>
-        <junit.jupiter.version>5.7.0</junit.jupiter.version>
+        <!-- JaCoCo configuration -->
+        <jacoco.version>0.8.8</jacoco.version>
+        <sonar.jacoco.reportPaths>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPaths>
+        <sonar.java.codeCoveragePlugin>jacoco</sonar.java.codeCoveragePlugin>
+        <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+
     </properties>
 
-    <!-- Reporting plugins... -->
+
+       <dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.6.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.6.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Agregué una dependencia para el plugin de Surefire -->
+        <dependency>
+            <groupId>org.apache.maven.surefire</groupId>
+            <artifactId>surefire-api</artifactId>
+            <version>2.22.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
-        <sourceDirectory>src</sourceDirectory>
-
         <plugins>
-            <!-- Maven Surefire Plugin -->
+            <!-- Configuración del plugin Surefire -->
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
+                <version>2.22.0</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <argLine>-Djava.awt.headless=true</argLine>
+                </configuration>
             </plugin>
 
-            <!-- JaCoCo Plugin -->
+            <!-- Configuración del plugin Jacoco -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.8</version>
                 <version>${jacoco.version}</version>
                 <executions>
-                    <!-- Other executions... -->
+                    <execution>
+                        <id>jacoco-initialize</id>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+@@ -86,18 +73,16 @@
                 </executions>
             </plugin>
 
-            <!-- Maven Compiler Plugin -->
+            <!-- Configuración del plugin de compilación -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
+
+            <!-- Configuración del plugin de empaquetado JAR -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>es.ull.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                     <groupId>org.sonarsource.scanner.maven</groupId>
+                     <artifactId>sonar-maven-plugin</artifactId>
+                     <version>3.9.0.2155</version>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.0.2155</version>
+            </plugin>
         </plugins>
     </build>
 
-    <dependencies>
-        <!-- JUnit Jupiter API -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- JUnit Jupiter Engine -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
-        </dependency>
-             
-<dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter-api</artifactId>
-    <version>5.6.0</version> 
-    <scope>test</scope>
-</dependency>
-<dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter-engine</artifactId>
-    <version>5.6.0</version>
-    <scope>test</scope>
-</dependency>
-
-    </dependencies>
 </project>
 
