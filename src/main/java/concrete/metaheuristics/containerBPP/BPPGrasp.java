@@ -2,12 +2,12 @@ package main.java.concrete.metaheuristics.containerBPP;
 
 import java.util.Random;
 
-import main.java.abstracts.metaheuristics.LoadingAbsractMHeuristics;
+import main.java.abstracts.metaheuristics.LoadingAbstractMHeuristics;
 import main.java.abstracts.problem.ILoadingProblems;
 import main.java.abstracts.solution.ILoadingSolutions;
 import main.java.concrete.solutions.BPPcontainerSolution;
 
-public class BPPGrasp extends LoadingAbsractMHeuristics {
+public class BPPGrasp extends LoadingAbstractMHeuristics {
 	private double alpha;
 	private int interations;
 	private Random random = new Random();

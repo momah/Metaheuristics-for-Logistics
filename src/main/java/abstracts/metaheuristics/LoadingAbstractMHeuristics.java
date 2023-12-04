@@ -6,7 +6,7 @@ import main.java.abstracts.problem.ILoadingProblems;
 import main.java.abstracts.solution.ILoadingSolutions;
 import main.java.concrete.solutions.BPPcontainerSolution;
 
-public abstract class LoadingAbsractMHeuristics {
+public abstract class LoadingAbstractMHeuristics {
     /**
      * The common solution to the problem
      */
@@ -16,7 +16,7 @@ public abstract class LoadingAbsractMHeuristics {
      * The problem instance: Capacity of the container,
      * set of weights and values of different items
      */
-    protected ILoadingProblems lProblem;
+    public ILoadingProblems lProblem;
 
     /**
      * A Random instance for generating random solutions //BUGFIX
@@ -26,12 +26,12 @@ public abstract class LoadingAbsractMHeuristics {
     /**
      * @param lProblem
      */
-    public LoadingAbsractMHeuristics(ILoadingProblems lProblem) {
+    public LoadingAbstractMHeuristics(ILoadingProblems lProblem) {
         super();
         this.lProblem = lProblem;
     }
 
-    protected BPPcontainerSolution randomSolution(ILoadingProblems instance) {
+    public BPPcontainerSolution randomSolution(ILoadingProblems instance) {
         int size = instance.getNumItems();
         int[] sol = new int[size];
 
@@ -44,7 +44,7 @@ public abstract class LoadingAbsractMHeuristics {
         return new BPPcontainerSolution(sol, instance);
     }
 
-    protected BPPcontainerSolution resetSolution(ILoadingProblems lProblem) {
+    public BPPcontainerSolution resetSolution(ILoadingProblems lProblem) {
         int size = lProblem.getNumItems();
         int[] sol = new int[size];
 

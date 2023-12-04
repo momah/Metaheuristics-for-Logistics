@@ -2,11 +2,11 @@ package main.java.concrete.metaheuristics.vehiclesVRP;
 
 import java.util.Collections;
 
-import main.java.abstracts.metaheuristics.RoutingAbsractMHeuristics;
+import main.java.abstracts.metaheuristics.RoutingAbstractMHeuristics;
 import main.java.abstracts.problem.IRoutingProblems;
 import main.java.concrete.solutions.VRPvehiclesSolution;
 
-public class VRPHillClimbing extends RoutingAbsractMHeuristics {
+public class VRPHillClimbing extends RoutingAbstractMHeuristics {
 	public VRPHillClimbing(IRoutingProblems rProblem) {
 		super(rProblem);
 	}

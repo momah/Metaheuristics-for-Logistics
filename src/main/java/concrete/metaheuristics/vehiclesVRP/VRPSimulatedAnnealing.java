@@ -2,7 +2,7 @@ package main.java.concrete.metaheuristics.vehiclesVRP;
 
 import java.util.Random;
 
-import main.java.abstracts.metaheuristics.RoutingAbsractMHeuristics;
+import main.java.abstracts.metaheuristics.RoutingAbstractMHeuristics;
 import main.java.abstracts.problem.IRoutingProblems;
 import main.java.abstracts.solution.IRoutingSolutions;
 import main.java.concrete.solutions.VRPvehiclesSolution;
@@ -10,7 +10,7 @@ import main.java.concrete.solutions.VRPvehiclesSolution;
 /**
  * Clase que implementa el algoritmo de Simulated Annealing para el problema de Vehicle Routing.
  */
-public class VRPSimulatedAnnealing extends RoutingAbsractMHeuristics {
+public class VRPSimulatedAnnealing extends RoutingAbstractMHeuristics {
     int temp = 1000;
     private IRoutingSolutions lastBestSolution;
     private Random random; // Instancia de Random para reutilización
