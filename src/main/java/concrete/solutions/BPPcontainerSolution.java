@@ -40,7 +40,7 @@ public class BPPcontainerSolution extends Solution implements ILoadingSolutions 
         return this.actualWeight() > this.problem.getCapacity();
     }
 
-    private int actualWeight() {
+    public int actualWeight() {
         int peso = 0;
         for (int i = 0; i < this.solution.length; i++)
             peso += this.solution[i] * this.problem.getItem(i).getWeight();

@@ -1,4 +1,4 @@
 package test.java.concrete.metaheuristics.vehiclesVRP;
 
-public class VRPSimulatedAnnealingTest {
+public class TestVRPSimulatedAnnealing {
 }

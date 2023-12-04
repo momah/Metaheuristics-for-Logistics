@@ -9,14 +9,11 @@ import main.java.concrete.Problems.containerBPP.Item;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class BPPcontainerProblemTest {
+class TestBPPcontainerProblem {
 
     private BPPcontainerProblem bppContainerProblemDefault;
-    private BPPcontainerProblem bppContainerProblem;
     private BPPcontainerProblem bppContainerProblemInitialize;
     private ArrayList<Item> array;
-
-
 
     @BeforeEach
     void setUp() {
@@ -31,7 +28,7 @@ class BPPcontainerProblemTest {
     @Test
     void testLoadDataFromFile() {
         String filename = "inputs/BPP_1.txt";
-        String loadedData = bppContainerProblem.LoadDataFromFile(filename);
+        String loadedData = bppContainerProblemInitialize.LoadDataFromFile(filename);
         //TODO
         assertNotEquals("", loadedData);
     }
@@ -41,18 +38,18 @@ class BPPcontainerProblemTest {
         // Test the instancesFromText method
 
         // Set up test data
-        bppContainerProblem.setTextInstances("100:10-20,30-40,50-60");
-        bppContainerProblem.instancesFromText();
+        bppContainerProblemInitialize.setTextInstances("100:10-20,30-40,50-60");
+        bppContainerProblemInitialize.instancesFromText();
 
         // Verify the loaded values
-        assertEquals(100, bppContainerProblem.getCapacity());
+        assertEquals(100, bppContainerProblemInitialize.getCapacity());
 
         ArrayList<Item> expectedItems = new ArrayList<>();
         expectedItems.add(new Item(10, 20));
         expectedItems.add(new Item(30, 40));
         expectedItems.add(new Item(50, 60));
 
-        assertEquals(expectedItems, bppContainerProblem.getItems());
+        assertEquals(expectedItems, bppContainerProblemInitialize.getItems());
     }
 
     @Test
@@ -60,50 +57,47 @@ class BPPcontainerProblemTest {
         // Test the getCapacity method
 
         // Verify the capacity value
-        assertEquals(150, bppContainerProblem.getCapacity());
+        assertEquals(150, bppContainerProblemInitialize.getCapacity());
     }
 
     @Test
     void testGetItem() {
         // Test the getItem method
         // Verify the getItem method
-        assertEquals(new Item(10, 20), bppContainerProblem.getItem(0));
-        assertEquals(new Item(30, 40), bppContainerProblem.getItem(1));
+        assertEquals(new Item(10, 20), bppContainerProblemInitialize.getItem(0));
+        assertEquals(new Item(30, 40), bppContainerProblemInitialize.getItem(1));
     }
 
     @Test
     void testGetItems() {
         // Verify the getItems method
-        assertEquals(this.array, bppContainerProblem.getItems());
+        assertEquals(this.array, bppContainerProblemInitialize.getItems());
     }
 
     @Test
     void testGetNumItems() {
         // Verify the getNumItems method
-        assertEquals(2, bppContainerProblem.getNumItems());
+        assertEquals(2, bppContainerProblemInitialize.getNumItems());
     }
 
     @Test
     void testToString() {
         // Verify the toString method
-        assertEquals("{ CAPACITY = 150 }", bppContainerProblem.toString());
+        assertEquals("{ CAPACITY = 150 }", bppContainerProblemInitialize.toString());
     }
 
     @Test
     void testPesoItems() {
         // Test the pesoItems method
-
         // Verify the pesoItems method
-        assertEquals(20 + 40, bppContainerProblem.pesoItems());
+        assertEquals(10 + 30, bppContainerProblemInitialize.pesoItems());
     }
 
     @Test
     void testToStringWithItems() {
         // Test the toString method with outputitems set to true
-
-
         // Verify the toString method with outputitems set to true
-        assertEquals("{ CAPACITY = 150 }\n\tItem{Weight=10, Volume=20}\n\tItem{Weight=30, Volume=40}}",
-                bppContainerProblem.toString(true));
+        assertEquals("{ CAPACITY = 150 }\nItem{Weight=10, Volume=20}\nItem{Weight=30, Volume=40}}",
+                bppContainerProblemInitialize.toString(true));
     }
 }

@@ -6,7 +6,7 @@ import main.java.concrete.Problems.vehiclesVRP.Edges;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class EdgesTest {
+public class TestEdges {
 
     private Edges edges;
 
