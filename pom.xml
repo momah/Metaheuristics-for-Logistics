@@ -14,10 +14,11 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <sonar.projectKey>edujbarrios_Metaheuristics-for-Logistics</sonar.projectKey>
         <sonar.organization>metaheuristics-for-logistics-lab</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-      <!-- JaCoCo configuration -->
         <jacoco.version>0.8.7</jacoco.version>
         <sonar.jacoco.reportPaths>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPaths>
         <sonar.java.codeCoveragePlugin>jacoco</sonar.java.codeCoveragePlugin>
@@ -26,6 +27,17 @@
 
     <build>
         <plugins>
+            <!-- Compiler plugin configuration -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+
             <!-- JaCoCo plugin -->
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -48,16 +60,19 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- Otros plugins -->
+            
+            <!-- Surefire plugin for running tests -->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
             </plugin>
+
+            <!-- Other plugins can be added here -->
         </plugins>
     </build>
 
     <dependencies>
-        <!-- Tus dependencias -->
+        <!-- JUnit Jupiter dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -70,6 +85,7 @@
             <version>5.6.0</version>
             <scope>test</scope>
         </dependency>
+        <!-- Other dependencies can be added here -->
     </dependencies>
 </project>
 
