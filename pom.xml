@@ -8,7 +8,7 @@
      <packaging>jar</packaging>
 
 
- @@ -16,18 +17,11 @@
+     <properties>
          <sonar.projectKey>edujbarrios_Metaheuristics-for-Logistics</sonar.projectKey>
          <sonar.organization>metaheuristics-for-logistics-lab</sonar.organization>
          <sonar.host.url>https://sonarcloud.io</sonar.host.url>
@@ -27,7 +27,6 @@
          <dependency>
              <groupId>org.junit.jupiter</groupId>
              <artifactId>junit-jupiter-api</artifactId>
- @@ -40,64 +34,73 @@
              <version>5.6.0</version>
              <scope>test</scope>
          </dependency>
