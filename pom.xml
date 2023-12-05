@@ -43,6 +43,7 @@
     </dependencies>
 
     <build>
+   <sourceDirectory>src/main</sourceDirectory>
         <plugins>
    
             <!-- Configuración del plugin Jacoco -->
