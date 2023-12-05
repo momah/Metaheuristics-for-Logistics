@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -6,7 +8,6 @@
     <artifactId>HeuristicsForLogistics</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-
 
     <name>HeuristicsForLogistics</name>
     <url>http://maven.apache.org</url>
@@ -18,16 +19,10 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <!-- JaCoCo configuration -->
-        <jacoco.version>0.8.7</jacoco.version>
-        <sonar.jacoco.reportPaths>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPaths>
-        <sonar.java.codeCoveragePlugin>jacoco</sonar.java.codeCoveragePlugin>
-        <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
-       
     </properties>
 
-
-       <dependencies>
+    <dependencies>
+        <!-- JUnit Jupiter dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -44,30 +39,7 @@
 
     <build>
         <plugins>
-   
-            <!-- Configuración del plugin Jacoco -->
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.8</version>
-                <executions>
-                    <execution>
-                        <id>jacoco-initialize</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- Configuración del plugin de compilación -->
+            <!-- Compiler plugin configuration -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -78,7 +50,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Configuración del plugin de empaquetado JAR -->
+            <!-- Jar plugin configuration -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -91,12 +63,14 @@
                     </archive>
                 </configuration>
             </plugin>
+
+            <!-- Sonar plugin configuration -->
             <plugin>
-                     <groupId>org.sonarsource.scanner.maven</groupId>
-                     <artifactId>sonar-maven-plugin</artifactId>
-                     <version>3.9.0.2155</version>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.0.2155</version>
             </plugin>
         </plugins>
     </build>
-
 </project>
+
