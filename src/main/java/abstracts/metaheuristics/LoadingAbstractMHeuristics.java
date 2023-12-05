@@ -8,7 +8,7 @@ import main.java.concrete.solutions.BPPcontainerSolution;
 
 public abstract class LoadingAbstractMHeuristics {
     /**
-     * The common solution to the problem
+     * The common solution to the problem - adding change
      */
     protected BPPcontainerSolution solution;
 
