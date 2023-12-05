@@ -40,13 +40,6 @@
             <version>5.6.0</version>
             <scope>test</scope>
         </dependency>
-        <!-- Agregué una dependencia para el plugin de Surefire -->
-        <dependency>
-            <groupId>org.apache.maven.surefire</groupId>
-            <artifactId>surefire-api</artifactId>
-            <version>2.22.0</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>
