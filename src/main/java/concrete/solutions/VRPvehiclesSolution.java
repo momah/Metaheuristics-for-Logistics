@@ -39,8 +39,9 @@ public class VRPvehiclesSolution extends Solution implements IRoutingSolutions {
 	}
 
 	public VRPvehiclesSolution(int[] solution,RoutingAbsractMHeuristics methode) {
-		this.solution = solution;
-		this.size = solution.length;
+		setSolution(solution.clone());
+	        this.size = solution.length;
+	        this.metaheuristics = methode;
 	}
 	
 	/* (non-Javadoc)
@@ -231,6 +232,11 @@ public class VRPvehiclesSolution extends Solution implements IRoutingSolutions {
 	    result = prime * result + size;
 	    return result;
 	}
+
+	@Override
+        public int[] getSolution() {
+		return solution.clone();
+        }
 	
 	/* (non-Javadoc)
 		* @see concrete.solutions.RoutingSolutions#setSolution(java.lang.Object[])
@@ -238,7 +244,6 @@ public class VRPvehiclesSolution extends Solution implements IRoutingSolutions {
 	
 	@Override
 	public void setSolution(Object[] array) {
-		// TODO Auto-generated method stub
 		for(int i = 0 ; i < solution.length ; i ++){
 			solution[i] = (int) array[i];
 		}
