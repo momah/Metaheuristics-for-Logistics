@@ -24,7 +24,7 @@ public class EdgesTest {
 	@Test
 	public void getSize() {
 		Edges e = new Edges();
-		int expected = 123;
+		int expected = 0;
 		int actual = e.getSize();
 
 		assertEquals(expected, actual);
