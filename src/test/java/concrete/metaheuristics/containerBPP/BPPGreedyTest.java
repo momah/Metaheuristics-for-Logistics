@@ -26,11 +26,13 @@ public class BPPGreedyTest {
     public void testSolve() {
         ILoadingProblems loadingProblem = null;
         BPPGreedy b = new BPPGreedy(loadingProblem);
-
+    
         // Assuming solve method updates some state, you might want to check for its side effects
         try {
             b.solve();
             // Add any additional assertions or checks related to the side effects of solve method
+            // For example, if there are some properties that should be updated after solve, you can check them here.
+            // assertEquals(expectedValue, b.getSomeProperty());
         } catch (Exception e) {
             fail("Unexpected exception: " + e.getMessage());
         }
