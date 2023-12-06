@@ -1,26 +1,25 @@
 package main.java.abstracts.problem;
 
 public abstract class Problem {
-	protected String textInstances;
+    protected String textInstances;
 
-	public Problem() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    protected Problem() {
+        super();
+    }
 
-	public abstract String toString();
-	
-	/**
-	 * @return the textInstances
-	 */
-	public String getTextInstances() {
-		return textInstances;
-	}
+    public abstract String toString();
 
-	/**
-	 * @param textInstances the textInstances to set
-	 */
-	public void setTextInstances(String textInstances) {
-		this.textInstances = textInstances;
-	}
+    /**
+     * @return the textInstances
+     */
+    public String getTextInstances() {
+        return textInstances;
+    }
+
+    /**
+     * @param textInstances the textInstances to set
+     */
+    public void setTextInstances(String textInstances) {
+        this.textInstances = textInstances;
+    }
 }
