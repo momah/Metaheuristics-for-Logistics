@@ -244,10 +244,12 @@ public class VRPvehiclesSolution extends Solution implements IRoutingSolutions {
 		* @see concrete.solutions.RoutingSolutions#setSolution(java.lang.Object[])
 		*/
 	
-	@Override
-	public void setSolution(int[] array) {
-		for(int i = 0 ; i < solution.length ; i ++){
-			solution[i] = (int) array[i];
-		}
-	}
+	public void setSolution(Object[] array) {
+	        if (array instanceof int[]) {
+	            int[] intArray = (int[]) array;
+	            for (int i = 0; i < size; i++) {
+	                solution[i] = intArray[i];
+	            }
+	        }
+	    }
 }
