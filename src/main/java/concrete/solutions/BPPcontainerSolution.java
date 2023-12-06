@@ -42,6 +42,13 @@ public class BPPcontainerSolution extends Solution implements ILoadingSolutions 
     }
 
     @Override
+	public void setSolution(int[] array) {
+		for(int i = 0 ; i < solution.length ; i ++){
+			solution[i] = (int) array[i];
+		}
+	}
+
+    @Override
     public boolean full() {
         return this.actualWeight() > this.problem.getCapacity();
     }
