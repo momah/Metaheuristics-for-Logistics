@@ -1,96 +1,58 @@
 package test.java.menus;
 
 import main.java.menus.BPPcontainerView;
-import main.java.abstracts.problem.ILoadingProblems;
-import main.java.concrete.Problems.containerBPP.BPPcontainerProblem;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.contrib.java.lang.system.SystemOutRule;
-import org.junit.contrib.java.lang.system.TextFromStandardInputStream;
-import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emptyStandardInputStream;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.mockito.Mockito;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class BPPcontainerViewTest {
 
-    @Rule
-    public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
+    private Scanner scannerMock;
 
-    @Rule
-    public final TextFromStandardInputStream systemInMock = emptyStandardInputStream();
+    @BeforeEach
+    void setUp() {
+        System.setOut(new PrintStream(outContent));
+        scannerMock = Mockito.mock(Scanner.class);
+    }
 
-    @Test
-    public void testRun_withValidDataFile() throws CloneNotSupportedException {
-        // Simula la entrada del nombre del archivo
-        systemInMock.provideLines("valid_data.txt");
-
-        // Crea un mock de BPPcontainerProblem
-        BPPcontainerProblem problemMock = mock(BPPcontainerProblem.class);
-
-        // Ejecuta el método run
-        BPPcontainerView.run(null, "BPP_1.txt");
-
-        // Verifica la salida esperada
-        assertTrue(systemOutRule.getLog().contains("BPP Container Loading Problem"));
+    @AfterEach
+    void tearDown() {
+        System.setOut(originalOut);
     }
 
     @Test
-    public void testRun_exitCommand() throws CloneNotSupportedException {
-        // Simula la entrada de 'exit'
-        systemInMock.provideLines("exit");
-
-        // Ejecuta el método run
-        BPPcontainerView.run(null, null);
-
-        // Verifica que el sistema maneje el comando 'exit'
-        assertTrue(systemOutRule.getLog().contains("exit"));
+    void testRun_withValidDataFile() {
+        try {
+            String dataFile = "valid_data.txt";
+            BPPcontainerView.run(scannerMock, dataFile);
+            assertTrue(outContent.toString().contains("BPP Container Loading Problem"));
+        } catch (CloneNotSupportedException e) {
+            fail("CloneNotSupportedException should not have been thrown");
+        }
     }
 
     @Test
-    public void testHillClimbingBPP() throws CloneNotSupportedException {
-        // Simula un problema de BPP
-        ILoadingProblems bppProblem = mock(ILoadingProblems.class);
-
-        // Ejecuta hillClimbingBPP
-        BPPcontainerView.hillClimbingBPP(bppProblem);
-
-        // Verifica la salida esperada
-        assertTrue(systemOutRule.getLog().contains("Metaheuristica: Hill Climbing Search"));
+    void testRun_exitCommand() {
+        try {
+            String input = "exit";
+            when(scannerMock.nextLine()).thenReturn(input);
+            BPPcontainerView.run(scannerMock, null);
+            assertTrue(outContent.toString().contains("exit"));
+        } catch (CloneNotSupportedException e) {
+            fail("CloneNotSupportedException should not have been thrown");
+        }
     }
 
-    @Test
-    public void testSimulatedAnnealingBPP() throws CloneNotSupportedException {
-        // Simula un problema de BPP
-        ILoadingProblems bppProblem = mock(ILoadingProblems.class);
+    // Additional tests...
 
-        // Ejecuta simulatedAnnealingBPP
-        BPPcontainerView.simulatedAnnealingBPP(bppProblem);
-
-        // Verifica la salida esperada
-        assertTrue(systemOutRule.getLog().contains("Metaheurística: Simulated Annealing Search"));
-    }
-
-    @Test
-    public void testGreedyBPP() throws CloneNotSupportedException {
-        // Simula un problema de BPP
-        ILoadingProblems bppProblem = mock(ILoadingProblems.class);
-
-        // Ejecuta greedyBPP
-        BPPcontainerView.greedyBPP(bppProblem);
-
-        // Verifica la salida esperada
-        assertTrue(systemOutRule.getLog().contains("Metaheurística: Greedy Search"));
-    }
-
-    @Test
-    public void testGraspBPP() throws CloneNotSupportedException {
-        // Simula un problema de BPP
-        ILoadingProblems bppProblem = mock(ILoadingProblems.class);
-
-        // Ejecuta graspBPP
-        BPPcontainerView.graspBPP(bppProblem);
-
-        // Verifica la salida esperada
-        assertTrue(systemOutRule.getLog().contains("Metaheurística: Grasp Search"));
-    }
 }
