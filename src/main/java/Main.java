@@ -17,7 +17,7 @@ public class Main {
         // Verificar si se han proporcionado argumentos de línea de comandos
         if (args.length > 0) {
             dataFile = args[0];
-            logger.info("Archivo de datos seleccionado: {}", dataFile);
+            logger.info("Archivo de datos seleccionado: " + dataFile);
         }
 
         Scanner sc = new Scanner(System.in);
@@ -34,7 +34,7 @@ public class Main {
                     VRPvehiclesView.run(sc, dataFile);
                 }
             } catch (CloneNotSupportedException e) {
-                logger.severe("Error durante la ejecución: {}", e.getMessage());
+                logger.severe("Error durante la ejecución: " + e.getMessage());
             }
 
         } while (opcion != 0);
