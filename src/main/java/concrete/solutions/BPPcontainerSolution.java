@@ -11,6 +11,7 @@ public class BPPcontainerSolution extends Solution implements ILoadingSolutions 
     private ILoadingProblems problem;
     private boolean full = false;
     private Random random; // Variable de instancia para Random
+    private int[] solution;
 
     public BPPcontainerSolution(int[] solution, ILoadingProblems bppProblem) {
         super();
