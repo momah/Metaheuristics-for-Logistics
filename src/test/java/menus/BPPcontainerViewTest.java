@@ -33,7 +33,7 @@ public class BPPcontainerViewTest {
     @Test
     void testRun_withValidDataFile() {
         try {
-            String dataFile = "valid_data.txt";
+            String dataFile = "BPP_1.txt";
             BPPcontainerView.run(scannerMock, dataFile);
             assertTrue(outContent.toString().contains("BPP Container Loading Problem"));
         } catch (CloneNotSupportedException e) {
