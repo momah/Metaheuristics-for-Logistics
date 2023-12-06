@@ -44,6 +44,14 @@
              <version>3.3.3</version>
              <scope>test</scope>
          </dependency>
+
+               <!-- JUnit 4 -->
+              <dependency>
+                  <groupId>junit</groupId>
+                  <artifactId>junit</artifactId>
+                  <version>4.13.1</version>
+                  <scope>test</scope>
+              </dependency>
      </dependencies>
 
      <build>
