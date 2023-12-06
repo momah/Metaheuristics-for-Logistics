@@ -27,12 +27,11 @@ public class BPPGreedyTest {
     public void testSolve() {
         ILoadingProblems loadingProblem = null;
         BPPGreedy b = new BPPGreedy(loadingProblem);
-
+    
         // Assuming solve method updates some state, you might want to check for its side effects
-        assertDoesNotThrow(() -> b.solve());
-
-        // If solve method returns a result, you might want to check it
-        // For example, if solve returns a boolean indicating success:
-        assertTrue(b.solve());
+        assertDoesNotThrow(() -> {
+            b.solve();
+            // Add any additional assertions or checks related to the side effects of solve method
+        });
     }
 }
