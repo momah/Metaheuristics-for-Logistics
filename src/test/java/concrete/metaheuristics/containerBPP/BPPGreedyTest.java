@@ -2,7 +2,9 @@ package main.java.concrete.metaheuristics.containerBPP;
 
 import main.java.abstracts.problem.ILoadingProblems;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class BPPGreedyTest {
     @Test
@@ -26,7 +28,7 @@ public class BPPGreedyTest {
     public void testSolve() {
         ILoadingProblems loadingProblem = null;
         BPPGreedy b = new BPPGreedy(loadingProblem);
-    
+
         // Assuming solve method updates some state, you might want to check for its side effects
         try {
             b.solve();
@@ -34,7 +36,8 @@ public class BPPGreedyTest {
             // For example, if there are some properties that should be updated after solve, you can check them here.
             // assertEquals(expectedValue, b.getSomeProperty());
         } catch (Exception e) {
-            fail("Unexpected exception: " + e.getMessage());
+            // Modify the failure message as needed
+            throw new AssertionError("Unexpected exception: " + e.getMessage(), e);
         }
     }
 }
