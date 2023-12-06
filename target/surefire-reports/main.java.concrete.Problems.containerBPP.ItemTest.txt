@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: main.java.concrete.Problems.containerBPP.ItemTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 s - in main.java.concrete.Problems.containerBPP.ItemTest
