@@ -184,6 +184,15 @@ public class VRPvehiclesSolution extends Solution implements IRoutingSolutions {
 		cloned.setSolution(cloned.getSolution().clone());
 		return cloned;
 	}
+
+	@Override
+	public IRoutingSolutions copy() {
+	    VRPvehiclesSolution copiedSolution = new VRPvehiclesSolution();
+	    copiedSolution.setSize(this.size);
+	    copiedSolution.setSolution(Arrays.copyOf(this.solution, this.size));
+	    // Copy any other attributes if needed
+	    return copiedSolution;
+	}
 	
 	/* (non-Javadoc)
 		* @see concrete.solutions.RoutingSolutions#compareTo(java.lang.Object)
