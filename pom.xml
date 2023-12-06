@@ -82,19 +82,21 @@
                  </configuration>
              </plugin>
 
-             <!-- Configuración del plugin de empaquetado JAR -->
              <plugin>
                  <groupId>org.apache.maven.plugins</groupId>
                  <artifactId>maven-jar-plugin</artifactId>
                  <version>3.2.0</version>
                  <configuration>
+                     <!-- Configuración del nombre del archivo final del JAR -->
+                     <finalName>MetaheuristicsForLogistics</finalName>
                      <archive>
                          <manifest>
-                             <mainClass>es.ull.Main</mainClass>
+                             <mainClass>Main</mainClass>
                          </manifest>
                      </archive>
                  </configuration>
              </plugin>
+
              <plugin>
                       <groupId>org.sonarsource.scanner.maven</groupId>
                       <artifactId>sonar-maven-plugin</artifactId>
@@ -115,3 +117,4 @@
      </build>
 
  </project>
+
