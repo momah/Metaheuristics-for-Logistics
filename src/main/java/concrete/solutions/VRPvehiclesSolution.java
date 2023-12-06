@@ -236,7 +236,7 @@ public class VRPvehiclesSolution extends Solution implements IRoutingSolutions {
 	}
 
 	@Override
-        public int[] getSolution() {
+        public Object getSolution() {
 		return solution.clone();
         }
 	
