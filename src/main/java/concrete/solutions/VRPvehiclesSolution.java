@@ -213,6 +213,15 @@ public class VRPvehiclesSolution extends Solution implements IRoutingSolutions {
 			return false;
 		return true;
 	}
+
+	@Override
+	public int hashCode() {
+	    final int prime = 31;
+	    int result = 1;
+	    result = prime * result + Arrays.hashCode(solution);
+	    result = prime * result + size;
+	    return result;
+	}
 	
 	/* (non-Javadoc)
 		* @see concrete.solutions.RoutingSolutions#setSolution(java.lang.Object[])
