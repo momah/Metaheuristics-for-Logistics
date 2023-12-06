@@ -37,16 +37,19 @@ public class BPPcontainerSolution extends Solution implements ILoadingSolutions 
     }
 
     @Override
-    public int[] getSolution() {
+    public Object getSolution() {
         return solution.clone();
     }
 
     @Override
-	public void setSolution(int[] array) {
-		for(int i = 0 ; i < solution.length ; i ++){
-			solution[i] = (int) array[i];
-		}
-	}
+    public void setSolution(Object[] array) {
+        if (array instanceof int[]) {
+            int[] intArray = (int[]) array;
+            for (int i = 0; i < size; i++) {
+                solution[i] = intArray[i];
+            }
+        }
+    }
 
     @Override
     public boolean full() {
