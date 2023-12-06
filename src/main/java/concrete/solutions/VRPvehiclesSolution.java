@@ -236,20 +236,24 @@ public class VRPvehiclesSolution extends Solution implements IRoutingSolutions {
 	}
 
 	@Override
-        public Object getSolution() {
+        public int[] getSolution() {
 		return solution.clone();
         }
-	
-	/* (non-Javadoc)
-		* @see concrete.solutions.RoutingSolutions#setSolution(java.lang.Object[])
-		*/
-	
-	public void setSolution(Object[] array) {
+
+	@Override
+	    public void setSolution(Object[] array) {
 	        if (array instanceof int[]) {
 	            int[] intArray = (int[]) array;
 	            for (int i = 0; i < size; i++) {
 	                solution[i] = intArray[i];
 	            }
 	        }
+	    }
+	
+	    @Override
+	    public Object clone() throws CloneNotSupportedException {
+	        VRPvehiclesSolution cloned = (VRPvehiclesSolution) super.clone();
+	        cloned.setSolution(cloned.getSolution().clone());
+	        return cloned;
 	    }
 }
