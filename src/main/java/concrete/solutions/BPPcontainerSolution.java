@@ -12,10 +12,12 @@ public class BPPcontainerSolution extends Solution implements ILoadingSolutions 
     private boolean full = false;
     private Random random; // Variable de instancia para Random
     private int[] solution;
+    private int size;
 
     public BPPcontainerSolution(int[] solution, ILoadingProblems bppProblem) {
         super();
         setSolution(solution.clone());
+        this.size = solution.length;
         this.problem = bppProblem;
         this.forbiden = new boolean[bppProblem.getNumItems()];
         for (int i = 0; i < this.problem.getNumItems(); i++)
