@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 
+import main.java.concrete.Problems.containerBPP.BPPcontainerProblem;
+import main.java.concrete.Problems.containerBPP.Item;
 import main.java.abstracts.problem.ILoadingProblems;
 import main.java.abstracts.problem.Problem;
 
