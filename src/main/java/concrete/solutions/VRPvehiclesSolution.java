@@ -19,6 +19,8 @@ public class VRPvehiclesSolution extends Solution implements IRoutingSolutions {
 	 */
 	private RoutingAbsractMHeuristics metaheuristics;
 	
+	private int[] solution;
+	
 	/**
 	 * Default constructor
 	 */
