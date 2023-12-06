@@ -57,18 +57,38 @@ public abstract class LoadingAbsractMHeuristics {
     }
 
     public void solve(ILoadingProblems lProblem) {
-        // Implementation of the solution method
+        // Check if the solution is not null before invoking methods
+        if (this.solution != null) {
+            // Implementation of the solution method
+        } else {
+            logger.warning("Solution is null. Cannot solve the problem.");
+        }
     }
 
     protected void printSolution(ILoadingSolutions lSolution) {
-        logger.info(lSolution.toString(true, true));
+        // Check if the solution is not null before logging
+        if (this.solution != null) {
+            logger.info(lSolution.toString(true, true));
+        } else {
+            logger.warning("Solution is null. Cannot print the solution.");
+        }
     }
 
     protected void printInitialSolution() {
-        logger.info("Initial Solution:\n" + this.solution.toString(true, true) + "\n");
+        // Check if the solution is not null before logging
+        if (this.solution != null) {
+            logger.info("Initial Solution:\n" + this.solution.toString(true, true) + "\n");
+        } else {
+            logger.warning("Solution is null. Cannot print the initial solution.");
+        }
     }
 
     protected void printBestSolution() {
-        logger.info("Final Solution :\n" + this.solution.toString(true, true) + "\n");
+        // Check if the solution is not null before logging
+        if (this.solution != null) {
+            logger.info("Final Solution :\n" + this.solution.toString(true, true) + "\n");
+        } else {
+            logger.warning("Solution is null. Cannot print the best solution.");
+        }
     }
 }
