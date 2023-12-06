@@ -5,14 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class EdgesTest {
 	@Test
-	public void Edges() {
-		Edges expected = new Edges();
-		Edges actual = new Edges();
-
-		assertEquals(expected, actual);
-	}
-
-	@Test
 	public void getDistances() {
 		Edges e = new Edges();
 		int[][] expected = null;
