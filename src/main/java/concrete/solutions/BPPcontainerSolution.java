@@ -14,7 +14,7 @@ public class BPPcontainerSolution extends Solution implements ILoadingSolutions 
 
     public BPPcontainerSolution(int[] solution, ILoadingProblems bppProblem) {
         super();
-        this.solution = solution.clone();
+        setSolution(solution.clone());
         this.problem = bppProblem;
         this.forbiden = new boolean[bppProblem.getNumItems()];
         for (int i = 0; i < this.problem.getNumItems(); i++)
@@ -33,6 +33,11 @@ public class BPPcontainerSolution extends Solution implements ILoadingSolutions 
             this.solution[index] = 1;
         else
             this.solution[index] = 0;
+    }
+
+    @Override
+    public int[] getSolution() {
+        return solution.clone();
     }
 
     @Override
