@@ -47,7 +47,7 @@ public abstract class LoadingAbsractMHeuristics {
         return new BPPcontainerSolution(sol, instance);
     }
 
-    protected BPPcontainerSolution resetSolution(ILoadingProblems lProblem) {
+    protected BPPcontainerSolution resetSolution() {
         int size = lProblem.getNumItems();
         int[] sol = new int[size];
 
@@ -56,7 +56,7 @@ public abstract class LoadingAbsractMHeuristics {
         return new BPPcontainerSolution(sol, lProblem);
     }
 
-    public void solve(ILoadingProblems lProblem) {
+    public void solve() {
         // Check if the solution is not null before invoking methods
         if (this.solution != null) {
             // Implementation of the solution method
