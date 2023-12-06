@@ -8,8 +8,16 @@
     <packaging>jar</packaging>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <sonar.projectKey>edujbarrios_Metaheuristics-for-Logistics</sonar.projectKey>
+         <sonar.organization>metaheuristics-for-logistics-lab</sonar.organization>
+         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+         <maven.compiler.source>17</maven.compiler.source>
+         <maven.compiler.target>17</maven.compiler.target>
+         <!-- JaCoCo configuration -->
+         <jacoco.version>0.8.7</jacoco.version>
+         <sonar.jacoco.reportPaths>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPaths>
+         <sonar.java.codeCoveragePlugin>jacoco</sonar.java.codeCoveragePlugin>
+         <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
     </properties>
 
     <dependencies>
@@ -99,6 +107,12 @@
                         <include>**/*Test.java</include>
                     </includes>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                  <groupId>org.sonarsource.scanner.maven</groupId>
+                  <artifactId>sonar-maven-plugin</artifactId>
+                  <version>3.9.0.2155</version>
             </plugin>
         </plugins>
     </build>
