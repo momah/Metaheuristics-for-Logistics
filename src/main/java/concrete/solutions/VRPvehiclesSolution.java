@@ -19,8 +19,6 @@ public class VRPvehiclesSolution extends Solution implements IRoutingSolutions {
 	 */
 	private RoutingAbsractMHeuristics metaheuristics;
 	
-	private int[] solution;
-	
 	/**
 	 * Default constructor
 	 */
@@ -41,9 +39,8 @@ public class VRPvehiclesSolution extends Solution implements IRoutingSolutions {
 	}
 
 	public VRPvehiclesSolution(int[] solution,RoutingAbsractMHeuristics methode) {
-		setSolution(solution.clone());
-	        this.size = solution.length;
-	        this.metaheuristics = methode;
+		this.solution = solution;
+		this.size = solution.length;
 	}
 	
 	/* (non-Javadoc)
@@ -187,15 +184,6 @@ public class VRPvehiclesSolution extends Solution implements IRoutingSolutions {
 		cloned.setSolution(cloned.getSolution().clone());
 		return cloned;
 	}
-
-	@Override
-	public IRoutingSolutions copy() {
-	    VRPvehiclesSolution copiedSolution = new VRPvehiclesSolution();
-	    copiedSolution.setSize(this.size);
-	    copiedSolution.setSolution(Arrays.copyOf(this.solution, this.size));
-	    // Copy any other attributes if needed
-	    return copiedSolution;
-	}
 	
 	/* (non-Javadoc)
 		* @see concrete.solutions.RoutingSolutions#compareTo(java.lang.Object)
@@ -225,25 +213,15 @@ public class VRPvehiclesSolution extends Solution implements IRoutingSolutions {
 			return false;
 		return true;
 	}
-
-	@Override
-	public int hashCode() {
-	    final int prime = 31;
-	    int result = 1;
-	    result = prime * result + Arrays.hashCode(solution);
-	    result = prime * result + size;
-	    return result;
-	}
-
-	@Override
-        public int[] getSolution() {
-		return solution.clone();
-        }
-
+	
+	/* (non-Javadoc)
+		* @see concrete.solutions.RoutingSolutions#setSolution(java.lang.Object[])
+		*/
 	@Override
 	public void setSolution(Object[] array) {
-	    for (int i = 0; i < solution.length; i++) {
-	        solution[i] = (int) array[i];
-	    }
+		// TODO Auto-generated method stub
+		for(int i = 0 ; i < solution.length ; i ++){
+			solution[i] = (int) array[i];
+		}
 	}
 }

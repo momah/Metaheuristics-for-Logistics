@@ -28,11 +28,11 @@ public class VRPvehiclesView {
 		}
 
 		VRPvehiclesProblem instance = new VRPvehiclesProblem();
-		String fileContent = instance.loadDataFromFile(filename);
+		String fileContent = instance.LoadDataFromFile(filename);
 		
 		if (fileContent != null && !fileContent.isEmpty()) {
 			instance.setTextInstances(fileContent);
-			instance.instancesFromFile(); // Ahora se procesa el contenido
+			instance.instancesfromFile(); // Ahora se procesa el contenido
 		} else {
 			System.out.println("El contenido del fichero está vacío o no se ha cargado correctamente.");
 			return; // Sal del método si no hay contenido para procesar

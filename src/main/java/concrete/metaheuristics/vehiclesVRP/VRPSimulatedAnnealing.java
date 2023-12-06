@@ -54,21 +54,21 @@ public class VRPSimulatedAnnealing extends RoutingAbsractMHeuristics {
 
         IRoutingSolutions neighbourSolution;
         double rand;
-        lastBestSolution = (IRoutingSolutions) solution.copy();
+        lastBestSolution = (IRoutingSolutions) solution.clone();
         do {
             neighbourSolution = this.randomNeighbour();
             rand = this.random.nextDouble();
 
             if (rand < acceptProbability(this.solution.getCostPath(problem), neighbourSolution.getCostPath(problem))) {
                 if (neighbourSolution.getCostPath(problem) < lastBestSolution.getCostPath(problem))
-                    lastBestSolution = (IRoutingSolutions) neighbourSolution.copy();
-                solution = (VRPvehiclesSolution) neighbourSolution.copy();
+                    lastBestSolution = (IRoutingSolutions) neighbourSolution.clone();
+                solution = (VRPvehiclesSolution) neighbourSolution.clone();
             }
             temp--;
         } while (temp > 1);
 
         if (solution.getCostPath(problem) > lastBestSolution.getCostPath(problem))
-            solution = (VRPvehiclesSolution) lastBestSolution.copy();
+            solution = (VRPvehiclesSolution) lastBestSolution.clone();
 
         long end = this.printFinalSolution(problem);
         System.out.println("Average time : " + (end - start) / 1000 + " us");

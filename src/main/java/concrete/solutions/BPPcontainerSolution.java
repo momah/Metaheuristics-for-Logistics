@@ -11,13 +11,10 @@ public class BPPcontainerSolution extends Solution implements ILoadingSolutions 
     private ILoadingProblems problem;
     private boolean full = false;
     private Random random; // Variable de instancia para Random
-    private int[] solution;
-    private int size;
 
     public BPPcontainerSolution(int[] solution, ILoadingProblems bppProblem) {
         super();
-        setSolution(solution.clone());
-        this.size = solution.length;
+        this.solution = solution.clone();
         this.problem = bppProblem;
         this.forbiden = new boolean[bppProblem.getNumItems()];
         for (int i = 0; i < this.problem.getNumItems(); i++)
@@ -36,18 +33,6 @@ public class BPPcontainerSolution extends Solution implements ILoadingSolutions 
             this.solution[index] = 1;
         else
             this.solution[index] = 0;
-    }
-
-    @Override
-    public Object getSolution() {
-        return solution.clone();
-    }
-
-    @Override
-    public void setSolution(Object[] array) {
-        for (int i = 0; i < solution.length; i++) {
-            solution[i] = (int) array[i];
-        }
     }
 
     @Override

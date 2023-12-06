@@ -45,7 +45,7 @@ public class VRPvehiclesProblem extends Problem implements IRoutingProblems {
      */
     public VRPvehiclesProblem(String filename) {
         super();
-        this.textInstances = loadDataFromFile(filename);
+        this.textInstances = LoadDataFromFile(filename);
     }
 
     @Override
@@ -89,7 +89,7 @@ public class VRPvehiclesProblem extends Problem implements IRoutingProblems {
     }
 
     @Override
-    public void instancesFromFile() { // Modificado para issue
+    public void instancesfromFile() { // Modificado para issue
         String[] lines = textInstances.split("\n");
         int size = lines.length - 1; // Resta 1 para excluir la línea de encabezados
         this.distances.setSize(size);
@@ -122,7 +122,7 @@ public class VRPvehiclesProblem extends Problem implements IRoutingProblems {
     }
 
     @Override
-    public String loadDataFromFile(String filename) {
+    public String LoadDataFromFile(String filename) {
         FileReader file = null;
         char[] buff = new char[1024 * 10];
         int length;
