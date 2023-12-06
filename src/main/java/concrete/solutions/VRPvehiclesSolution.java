@@ -245,7 +245,7 @@ public class VRPvehiclesSolution extends Solution implements IRoutingSolutions {
 		*/
 	
 	@Override
-	public void setSolution(Object[] array) {
+	public void setSolution(int[] array) {
 		for(int i = 0 ; i < solution.length ; i ++){
 			solution[i] = (int) array[i];
 		}
