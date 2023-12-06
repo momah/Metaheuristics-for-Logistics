@@ -1,12 +1,15 @@
 package main.java.abstracts.metaheuristics;
 
 import java.util.Random;
+import java.util.logging.Logger;
 
 import main.java.abstracts.problem.ILoadingProblems;
 import main.java.abstracts.solution.ILoadingSolutions;
 import main.java.concrete.solutions.BPPcontainerSolution;
 
 public abstract class LoadingAbsractMHeuristics {
+    private static final Logger logger = Logger.getLogger(LoadingAbsractMHeuristics.class.getName());
+
     /**
      * The common solution to the problem
      */
@@ -26,7 +29,7 @@ public abstract class LoadingAbsractMHeuristics {
     /**
      * @param lProblem
      */
-    public LoadingAbsractMHeuristics(ILoadingProblems lProblem) {
+    protected LoadingAbsractMHeuristics(ILoadingProblems lProblem) {
         super();
         this.lProblem = lProblem;
     }
@@ -54,18 +57,18 @@ public abstract class LoadingAbsractMHeuristics {
     }
 
     public void solve(ILoadingProblems lProblem) {
-        // Implementation of the solution method TODO
+        // Implementation of the solution method
     }
 
     protected void printSolution(ILoadingSolutions lSolution) {
-        System.out.println(lSolution.toString(true, true));
+        logger.info(lSolution.toString(true, true));
     }
 
     protected void printInitialSolution() {
-        System.out.println("Initial Solution:\n" + this.solution.toString(true, true) + "\n");
+        logger.info("Initial Solution:\n" + this.solution.toString(true, true) + "\n");
     }
 
     protected void printBestSolution() {
-        System.out.println("Final Solution :\n" + this.solution.toString(true, true) + "\n");
+        logger.info("Final Solution :\n" + this.solution.toString(true, true) + "\n");
     }
 }
