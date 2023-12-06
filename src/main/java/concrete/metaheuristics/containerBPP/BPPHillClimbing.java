@@ -1,16 +1,17 @@
 package main.java.concrete.metaheuristics.containerBPP;
 
-import main.java.abstracts.metaheuristics.LoadingAbstractMHeuristics;
+import main.java.abstracts.metaheuristics.LoadingAbsractMHeuristics;
 import main.java.abstracts.problem.ILoadingProblems;
 import main.java.concrete.solutions.BPPcontainerSolution;
 
-public class BPPHillClimbing extends LoadingAbstractMHeuristics {
+public class BPPHillClimbing extends LoadingAbsractMHeuristics {
 	/**
+	 * @param actual
 	 * @param instancia
 	 */
 	public BPPHillClimbing(ILoadingProblems instancia) {
 		super(instancia);
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public void solve(){

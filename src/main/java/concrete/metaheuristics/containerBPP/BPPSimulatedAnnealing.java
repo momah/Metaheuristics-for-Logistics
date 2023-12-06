@@ -3,7 +3,7 @@ package main.java.concrete.metaheuristics.containerBPP;
 import java.util.ArrayList;
 import java.util.Random;
 
-import main.java.abstracts.metaheuristics.LoadingAbstractMHeuristics;
+import main.java.abstracts.metaheuristics.LoadingAbsractMHeuristics;
 import main.java.abstracts.problem.ILoadingProblems;
 import main.java.abstracts.solution.ILoadingSolutions;
 import main.java.concrete.solutions.BPPcontainerSolution;
@@ -11,7 +11,7 @@ import main.java.concrete.solutions.BPPcontainerSolution;
 /**
  * Clase que implementa el algoritmo de Simulated Annealing para el problema de Bin Packing.
  */
-public class BPPSimulatedAnnealing extends LoadingAbstractMHeuristics {
+public class BPPSimulatedAnnealing extends LoadingAbsractMHeuristics {
     private final int maxIterationsI = 10;
     private final int maxIterationsK = 20;
     private final double alpha = 0.9;

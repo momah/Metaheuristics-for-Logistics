@@ -1,6 +1,6 @@
 package main.java.abstracts.solution;
 
-import main.java.abstracts.metaheuristics.RoutingAbstractMHeuristics;
+import main.java.abstracts.metaheuristics.RoutingAbsractMHeuristics;
 import main.java.abstracts.problem.Problem;
 
 /**
@@ -21,7 +21,7 @@ public abstract class Solution implements Cloneable,Comparable<Object> {
 	/**
 	 * Metaheuristics used for resolution
 	 */
-	protected RoutingAbstractMHeuristics metaheuristics;
+	protected RoutingAbsractMHeuristics metaheuristics;
 	
 	/**
 	 * 
@@ -61,14 +61,14 @@ public abstract class Solution implements Cloneable,Comparable<Object> {
 	/**
 	 * @return the metaheuristics of solution
 	 */
-	public RoutingAbstractMHeuristics getMetaheuristics() {
+	public RoutingAbsractMHeuristics getMetaheuristics() {
 		return metaheuristics;
 	}
 
 	/**
 	 * @param metaheuristics, the metaheuristics to set to the solution
 	 */
-	public void setMetaheuristics(RoutingAbstractMHeuristics metaheuristics) {
+	public void setMetaheuristics(RoutingAbsractMHeuristics metaheuristics) {
 		this.metaheuristics = metaheuristics;
 	}
 }

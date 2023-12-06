@@ -1,12 +1,12 @@
 package main.java.concrete.metaheuristics.containerBPP;
 
-import main.java.abstracts.metaheuristics.LoadingAbstractMHeuristics;
+import main.java.abstracts.metaheuristics.LoadingAbsractMHeuristics;
 import main.java.abstracts.problem.ILoadingProblems;
 
-public class BPPGreedy extends LoadingAbstractMHeuristics {
+public class BPPGreedy extends LoadingAbsractMHeuristics {
 	public BPPGreedy(ILoadingProblems instancia) {
 		super(instancia);
-		// TODO Auto-generated constructor stub
+
 	}
 	
 	public void solve(){

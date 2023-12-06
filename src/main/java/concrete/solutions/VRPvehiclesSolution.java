@@ -3,7 +3,7 @@ package main.java.concrete.solutions;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import main.java.abstracts.metaheuristics.RoutingAbstractMHeuristics;
+import main.java.abstracts.metaheuristics.RoutingAbsractMHeuristics;
 import main.java.abstracts.problem.IRoutingProblems;
 import main.java.abstracts.solution.IRoutingSolutions;
 import main.java.abstracts.solution.Solution;
@@ -17,7 +17,7 @@ public class VRPvehiclesSolution extends Solution implements IRoutingSolutions {
 	/**
 	 * Metaheuristics used for resolution
 	 */
-	private RoutingAbstractMHeuristics metaheuristics;
+	private RoutingAbsractMHeuristics metaheuristics;
 	
 	/**
 	 * Default constructor
@@ -31,14 +31,14 @@ public class VRPvehiclesSolution extends Solution implements IRoutingSolutions {
 	 * @param size
 	 * @param metaheuristics
 	 */
-	public VRPvehiclesSolution(int size, RoutingAbstractMHeuristics metaheuristics) {
+	public VRPvehiclesSolution(int size, RoutingAbsractMHeuristics metaheuristics) {
 		super();
 		this.size = size;
 		this.metaheuristics = metaheuristics;
 		this.solution = new int[size];
 	}
 
-	public VRPvehiclesSolution(int[] solution,RoutingAbstractMHeuristics methode) {
+	public VRPvehiclesSolution(int[] solution,RoutingAbsractMHeuristics methode) {
 		this.solution = solution;
 		this.size = solution.length;
 	}

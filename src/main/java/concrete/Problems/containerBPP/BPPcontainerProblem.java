@@ -13,7 +13,7 @@ public class BPPcontainerProblem extends Problem implements ILoadingProblems {
 	private ArrayList<Item> items;
 	
 	public BPPcontainerProblem() {
-		// TODO Auto-generated constructor stub
+
 	}
 	
 	/**
