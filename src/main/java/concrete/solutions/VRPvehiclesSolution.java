@@ -226,6 +226,7 @@ public class VRPvehiclesSolution extends Solution implements IRoutingSolutions {
 	/* (non-Javadoc)
 		* @see concrete.solutions.RoutingSolutions#setSolution(java.lang.Object[])
 		*/
+	
 	@Override
 	public void setSolution(Object[] array) {
 		// TODO Auto-generated method stub
