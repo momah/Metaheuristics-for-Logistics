@@ -13,7 +13,7 @@ public class MainTest {
 
     @Test
     public void testMainWithArguments() {
-        String[] args = {"dataFile.txt"};
+        String[] args = {"BPP_1.txt"};
         assertDoesNotThrow(() -> Main.main(args));
     }
 
