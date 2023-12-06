@@ -17,7 +17,7 @@ public class ItemTest {
 	@Test
 	public void getFator() {
 		Item i = new Item(123, 123);
-		double expected = 123.4D;
+		double expected = 1.0D;
 		double actual = i.getFator();
 
 		assertEquals(expected, actual, 0.0000001D);
@@ -44,7 +44,7 @@ public class ItemTest {
 	@Test
 	public void toStringTODO() {
 		Item i = new Item(123, 123);
-		String expected = "abc";
+		String expected = "[ Item Area = 123, Priority = 123 ]";
 		String actual = i.toString();
 
 		assertEquals(expected, actual);
