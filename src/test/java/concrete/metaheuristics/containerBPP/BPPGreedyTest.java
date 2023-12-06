@@ -1,11 +1,10 @@
 package main.java.concrete.metaheuristics.containerBPP;
 
 import main.java.abstracts.problem.ILoadingProblems;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class BPPGreedyTest {
-
     @Test
     public void testBPPGreedyConstructor() {
         ILoadingProblems instancia = null;
@@ -27,11 +26,13 @@ public class BPPGreedyTest {
     public void testSolve() {
         ILoadingProblems loadingProblem = null;
         BPPGreedy b = new BPPGreedy(loadingProblem);
-    
+
         // Assuming solve method updates some state, you might want to check for its side effects
-        assertDoesNotThrow(() -> {
+        try {
             b.solve();
             // Add any additional assertions or checks related to the side effects of solve method
-        });
+        } catch (Exception e) {
+            fail("Unexpected exception: " + e.getMessage());
+        }
     }
 }
