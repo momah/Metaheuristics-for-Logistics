@@ -2,7 +2,7 @@
 
 Este repositorio explora la aplicación de metaheurísticas para abordar problemas logísticos desafiantes, como el BPP (Container Loading Problem) y el VRP (Vehicle Routing Problem).
 
-![LOGO](../../Downloads/Metaheuristics-for-Logistics-master%2036/logo/MFL_logo.png)
+![LOGO](./logo/MFL_logo.png)
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=edujbarrios_Metaheuristics-for-Logistics)
 
