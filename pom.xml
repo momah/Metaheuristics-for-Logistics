@@ -20,7 +20,6 @@
     </properties>
 
     <dependencies>
-        <!-- Tus dependencias existentes se mantienen sin cambios -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
@@ -50,7 +49,6 @@
 
     <build>
         <plugins>
-            <!-- Tus plugins existentes se mantienen sin cambios -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -97,11 +95,13 @@
                     </archive>
                 </configuration>
             </plugin>
-         
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>3.14.0</version>
+                <configuration>
+                    <targetJdk>1.8</targetJdk>
+                </configuration>
                 <executions>
                     <execution>
                         <phase>verify</phase>
@@ -111,7 +111,6 @@
                     </execution>
                 </executions>
             </plugin>
-            
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
@@ -125,9 +124,10 @@
                     </execution>
                 </executions>
             </plugin>
-         </plugins>
+        </plugins>
     </build>
-   <reporting>
+
+    <reporting>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
