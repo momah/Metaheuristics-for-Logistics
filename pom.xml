@@ -20,7 +20,6 @@
     </properties>
 
     <dependencies>
-        <!-- Existing dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
@@ -45,11 +44,11 @@
             <version>5.8.2</version>
             <scope>test</scope>
         </dependency>
+        <!-- Asegúrate de agregar aquí cualquier otra dependencia que necesites -->
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Existing plugins -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -97,7 +96,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Added plugins -->
+            <!-- Plugin de Checkstyle para análisis de estilo de código -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -105,18 +104,45 @@
                 <configuration>
                     <configLocation>checkstyle.xml</configLocation>
                 </configuration>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
+            
+            <!-- Plugin de PMD para análisis de código fuente -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>3.14.0</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
+            
+            <!-- Plugin de OWASP Dependency-Check para detección de vulnerabilidades en dependencias -->
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
                 <version>6.5.0</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
 </project>
-
