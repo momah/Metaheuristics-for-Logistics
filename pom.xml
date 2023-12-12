@@ -8,7 +8,7 @@
     <name>Finalproject-LyDH</name>
     <packaging>jar</packaging>
     <url>http://maven.apache.org</url>
-    
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <sonar.projectKey>edujbarrios_Metaheuristics-for-Logistics</sonar.projectKey>
@@ -20,6 +20,7 @@
     </properties>
 
     <dependencies>
+        <!-- Tus dependencias existentes se mantienen sin cambios -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
@@ -49,6 +50,7 @@
 
     <build>
         <plugins>
+            <!-- Tus plugins existentes se mantienen sin cambios -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -96,24 +98,23 @@
                 </configuration>
             </plugin>
 
-        <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.3.1</version>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <report>checkstyle</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
-            </plugin>
-        </plugins>
-    </reporting>
+            <reporting>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-checkstyle-plugin</artifactId>
+                        <version>3.3.1</version>
+                        <reportSets>
+                            <reportSet>
+                                <reports>
+                                    <report>checkstyle</report>
+                                </reports>
+                            </reportSet>
+                        </reportSets>
+                    </plugin>
+                </plugins>
+            </reporting>
             
-            <!-- Plugin de PMD para análisis de código fuente -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
@@ -128,7 +129,6 @@
                 </executions>
             </plugin>
             
-            <!-- Plugin de OWASP Dependency-Check para detección de vulnerabilidades en dependencias -->
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
@@ -145,3 +145,4 @@
         </plugins>
     </build>
 </project>
+
